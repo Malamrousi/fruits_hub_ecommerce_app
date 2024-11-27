@@ -1,34 +1,34 @@
 {
-  "splash_description": "اكتشف تجربة تسوق فريدة مع FruitHUB المميز، مجموعتنا الواسعة من الفواكهة الطازجة الممتازة، واحصل على افضل العروض والجودة العالية",
-  "search_shop": "ابحث وتسوق",
-  "search_description": "تعرف الى افضل الفواكه الطازجة بضائع على الاطلاق والحصر للمنتجات للحد من الغير المذكورة",
-  "start_now": "ابدأ الآن",
-  "skip": "تخط",
-  "welcome_hello": "مرحبًا بك",
-  "welcome_fruit": "Fruit",
-  "welcome_hub": "Hub",
-  "@splash_description": {
-      "description": "Splash screen main description"
-  },
-  "@search_shop": {
-      "description": "Search and shop button text"
-  },
-  "@search_description": {
-      "description": "Search section description"
-  },
-  "@start_now": {
-      "description": "Start now button text"
-  },
-  "@skip": {
-      "description": "Skip button text"
-  },
-  "@welcome_hello": {
-      "description": "Welcome message"
-  },
-  "@welcome_fruit": {
-      "description": "Brand name part 1"
-  },
-  "@welcome_hub": {
-      "description": "Brand name part 2"
-  }
+    "splash_description": "اكتشف تجربة تسوق فريدة مع FruitHUB المميز، مجموعتنا الواسعة من الفواكهة الطازجة الممتازة، واحصل على افضل العروض والجودة العالية",
+    "search_shop": "ابحث وتسوق",
+    "search_description": "تعرف الى افضل الفواكه الطازجة بضائع على الاطلاق والحصر للمنتجات للحد من الغير المذكورة",
+    "start_now": "ابدأ الآن",
+    "skip": "تخط",
+    "welcome_hello": "مرحبًا بك",
+    "welcome_fruit": "Fruit",
+    "welcome_hub": "Hub",
+    "@splash_description": {
+        "description": "Splash screen main description"
+    },
+    "@search_shop": {
+        "description": "Search and shop button text"
+    },
+    "@search_description": {
+        "description": "Search section description"
+    },
+    "@start_now": {
+        "description": "Start now button text"
+    },
+    "@skip": {
+        "description": "Skip button text"
+    },
+    "@welcome_hello": {
+        "description": "Welcome message"
+    },
+    "@welcome_fruit": {
+        "description": "Brand name part 1"
+    },
+    "@welcome_hub": {
+        "description": "Brand name part 2"
+    }
 }

@@ -29,7 +29,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
-          mainAxisAlignment:isArabic() ? MainAxisAlignment.end : MainAxisAlignment.start,
+          mainAxisAlignment:isArabic() ? MainAxisAlignment.start : MainAxisAlignment.end,
           children: [
             SvgPicture.asset(Assets.imagesPlant),
           ],

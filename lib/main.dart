@@ -21,8 +21,8 @@ class FruitsHub extends StatelessWidget {
         fontFamily:'Cairo',
       ),
       supportedLocales: const [
-        Locale('ar'), // Arabic
-        Locale('en'), // English
+        Locale('ar'),
+        Locale('en'), 
       ],
       localizationsDelegates: const [
         S.delegate,

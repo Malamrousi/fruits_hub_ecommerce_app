@@ -1,35 +1,34 @@
 {
-  "splash_description": "Discover a unique shopping experience with premium FruitHUB, our wide collection of excellent fresh fruits, and get the best deals and high quality",
-  "search_shop": "Search and Shop",
-  "search_description": "Learn about the best fresh fruits, goods ever, and exclusive products to limit unlisted items",
-  "start_now": "Start Now",
-  "skip": "skip",
-  "welcome_hello": "Welcome to",
-  "welcome_fruit": "Fruit",
-  "welcome_hub": "Hub",
-  
-  "@splash_description": {
-      "description": "Splash screen main description"
-  },
-  "@search_shop": {
-      "description": "Search and shop button text"
-  },
-  "@search_description": {
-      "description": "Search section description"
-  },
-  "@start_now": {
-      "description": "Start now button text"
-  },
-  "@skip": {
-      "description": "Skip button text"
-  },
-  "@welcome_hello": {
-      "description": "Welcome message"
-  },
-  "@welcome_fruit": {
-      "description": "Brand name part 1"
-  },
-  "@welcome_hub": {
-      "description": "Brand name part 2"
-  }
+    "splash_description": "Discover a unique shopping experience with premium FruitHUB, our wide collection of excellent fresh fruits, and get the best deals and high quality",
+    "search_shop": "Search and Shop",
+    "search_description": "Learn about the best fresh fruits, goods ever, and exclusive products to limit unlisted items",
+    "start_now": "Start Now",
+    "skip": "skip",
+    "welcome_hello": "Welcome to",
+    "welcome_fruit": "Fruit",
+    "welcome_hub": "Hub",
+    "@splash_description": {
+        "description": "Splash screen main description"
+    },
+    "@search_shop": {
+        "description": "Search and shop button text"
+    },
+    "@search_description": {
+        "description": "Search section description"
+    },
+    "@start_now": {
+        "description": "Start now button text"
+    },
+    "@skip": {
+        "description": "Skip button text"
+    },
+    "@welcome_hello": {
+        "description": "Welcome message"
+    },
+    "@welcome_fruit": {
+        "description": "Brand name part 1"
+    },
+    "@welcome_hub": {
+        "description": "Brand name part 2"
+    }
 }
