@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruit_hub/constant.dart';
+import 'package:fruit_hub/core/helper/extension.dart';
+import 'package:fruit_hub/core/routing/route_name.dart';
+import 'package:fruit_hub/core/services/shared_preferences.dart';
 
 import '../../../../../core/helper/spacing.dart';
 import '../../../../../core/utils/app_styles.dart';
@@ -40,13 +44,20 @@ class PageViewItem extends StatelessWidget {
                   image,
                 ),
               ),
-              Visibility(
-                visible: isVisible,
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    S.of(context).skip,
-                    style: AppStyles.font13stoneGraySemiBold,
+              GestureDetector(
+                onTap: () {
+                  SharedPreferencesService()
+                      .setBool(isOnBoardingSeenView, true);
+                  context.pushReplacementNamed(RouteName.login);
+                },
+                child: Visibility(
+                  visible: isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      S.of(context).skip,
+                      style: AppStyles.font13stoneGraySemiBold,
+                    ),
                   ),
                 ),
               ),

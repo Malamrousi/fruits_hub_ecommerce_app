@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruit_hub/core/routing/route_name.dart';
+import 'package:fruit_hub/core/services/shared_preferences.dart';
 
 import 'core/routing/routing.dart';
 import 'generated/l10n.dart';
 
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferencesService.init();
   runApp(const FruitsHub());
 }
 

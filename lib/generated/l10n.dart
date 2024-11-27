@@ -55,7 +55,7 @@ class S {
     return Intl.message(
       'Discover a unique shopping experience with premium FruitHUB, our wide collection of excellent fresh fruits, and get the best deals and high quality',
       name: 'splash_description',
-      desc: 'Splash screen main description',
+      desc: '',
       args: [],
     );
   }
@@ -65,7 +65,7 @@ class S {
     return Intl.message(
       'Search and Shop',
       name: 'search_shop',
-      desc: 'Search and shop button text',
+      desc: '',
       args: [],
     );
   }
@@ -75,7 +75,7 @@ class S {
     return Intl.message(
       'Learn about the best fresh fruits, goods ever, and exclusive products to limit unlisted items',
       name: 'search_description',
-      desc: 'Search section description',
+      desc: '',
       args: [],
     );
   }
@@ -85,17 +85,17 @@ class S {
     return Intl.message(
       'Start Now',
       name: 'start_now',
-      desc: 'Start now button text',
+      desc: '',
       args: [],
     );
   }
 
-  /// `skip`
+  /// `Skip`
   String get skip {
     return Intl.message(
-      'skip',
+      'Skip',
       name: 'skip',
-      desc: 'Skip button text',
+      desc: '',
       args: [],
     );
   }
@@ -105,7 +105,7 @@ class S {
     return Intl.message(
       'Welcome to',
       name: 'welcome_hello',
-      desc: 'Welcome message',
+      desc: '',
       args: [],
     );
   }
@@ -115,7 +115,7 @@ class S {
     return Intl.message(
       'Fruit',
       name: 'welcome_fruit',
-      desc: 'Brand name part 1',
+      desc: '',
       args: [],
     );
   }
@@ -125,7 +125,247 @@ class S {
     return Intl.message(
       'Hub',
       name: 'welcome_hub',
-      desc: 'Brand name part 2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get signup {
+    return Intl.message(
+      'Sign Up',
+      name: 'signup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email_hint {
+    return Intl.message(
+      'Email',
+      name: 'email_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password_hint {
+    return Intl.message(
+      'Password',
+      name: 'password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get forgot_password {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgot_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login with Google`
+  String get login_google {
+    return Intl.message(
+      'Login with Google',
+      name: 'login_google',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login with Apple`
+  String get login_apple {
+    return Intl.message(
+      'Login with Apple',
+      name: 'login_apple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login with Facebook`
+  String get login_facebook {
+    return Intl.message(
+      'Login with Facebook',
+      name: 'login_facebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OR`
+  String get or {
+    return Intl.message(
+      'OR',
+      name: 'or',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get dont_have_account {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'dont_have_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Account`
+  String get create_account {
+    return Intl.message(
+      'Create Account',
+      name: 'create_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password`
+  String get forgot_password_title {
+    return Intl.message(
+      'Forgot Password',
+      name: 'forgot_password_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your phone number to send verification code`
+  String get forgot_password_desc {
+    return Intl.message(
+      'Enter your phone number to send verification code',
+      name: 'forgot_password_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mobile Number`
+  String get phone_hint {
+    return Intl.message(
+      'Mobile Number',
+      name: 'phone_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Code`
+  String get send_code {
+    return Intl.message(
+      'Send Code',
+      name: 'send_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code Verification`
+  String get verify_title {
+    return Intl.message(
+      'Code Verification',
+      name: 'verify_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the code sent to`
+  String get verify_desc {
+    return Intl.message(
+      'Enter the code sent to',
+      name: 'verify_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify Code`
+  String get verify_button {
+    return Intl.message(
+      'Verify Code',
+      name: 'verify_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get reset_password_title {
+    return Intl.message(
+      'Reset Password',
+      name: 'reset_password_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create new password`
+  String get reset_password_desc {
+    return Intl.message(
+      'Create new password',
+      name: 'reset_password_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirm_password_hint {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirm_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set New Password`
+  String get set_new_password {
+    return Intl.message(
+      'Set New Password',
+      name: 'set_new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password Changed Successfully`
+  String get success_title {
+    return Intl.message(
+      'Password Changed Successfully',
+      name: 'success_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your password has been changed successfully`
+  String get success_desc {
+    return Intl.message(
+      'Your password has been changed successfully',
+      name: 'success_desc',
+      desc: '',
       args: [],
     );
   }

@@ -7,8 +7,7 @@ import 'page_view_item.dart';
 class OnBoardingPageView extends StatelessWidget {
   const OnBoardingPageView({super.key, required this.pageController});
 
- final PageController pageController;
-
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class OnBoardingPageView extends StatelessWidget {
       controller: pageController,
       children: [
         PageViewItem(
-          isVisible: (pageController.hasClients ? pageController.page!.round() : 0) ==0 ,
+          isVisible: true,
           backgroundImage: Assets.imagesObBoardingShape1,
           image: Assets.imagesFruitBasket1,
           description: S.of(context).splash_description,
@@ -40,7 +39,7 @@ class OnBoardingPageView extends StatelessWidget {
           ),
         ),
         PageViewItem(
-          isVisible:(pageController.hasClients ? pageController.page!.round() : 0) !=0 ,
+          isVisible: false,
           backgroundImage: Assets.imagesObBoardingShape2,
           image: Assets.imagesFruitBasket2,
           description: S.of(context).search_description,

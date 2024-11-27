@@ -3,32 +3,32 @@
     "search_shop": "Search and Shop",
     "search_description": "Learn about the best fresh fruits, goods ever, and exclusive products to limit unlisted items",
     "start_now": "Start Now",
-    "skip": "skip",
+    "skip": "Skip",
     "welcome_hello": "Welcome to",
     "welcome_fruit": "Fruit",
     "welcome_hub": "Hub",
-    "@splash_description": {
-        "description": "Splash screen main description"
-    },
-    "@search_shop": {
-        "description": "Search and shop button text"
-    },
-    "@search_description": {
-        "description": "Search section description"
-    },
-    "@start_now": {
-        "description": "Start now button text"
-    },
-    "@skip": {
-        "description": "Skip button text"
-    },
-    "@welcome_hello": {
-        "description": "Welcome message"
-    },
-    "@welcome_fruit": {
-        "description": "Brand name part 1"
-    },
-    "@welcome_hub": {
-        "description": "Brand name part 2"
-    }
+    "login": "Login",
+    "signup": "Sign Up",
+    "email_hint": "Email",
+    "password_hint": "Password",
+    "forgot_password": "Forgot Password?",
+    "login_google": "Login with Google",
+    "login_apple": "Login with Apple",
+    "login_facebook": "Login with Facebook",
+    "or": "OR",
+    "dont_have_account": "Don't have an account?",
+    "create_account": "Create Account",
+    "forgot_password_title": "Forgot Password",
+    "forgot_password_desc": "Enter your phone number to send verification code",
+    "phone_hint": "Mobile Number",
+    "send_code": "Send Code",
+    "verify_title": "Code Verification",
+    "verify_desc": "Enter the code sent to",
+    "verify_button": "Verify Code",
+    "reset_password_title": "Reset Password",
+    "reset_password_desc": "Create new password",
+    "confirm_password_hint": "Confirm Password",
+    "set_new_password": "Set New Password",
+    "success_title": "Password Changed Successfully",
+    "success_desc": "Your password has been changed successfully"
 }

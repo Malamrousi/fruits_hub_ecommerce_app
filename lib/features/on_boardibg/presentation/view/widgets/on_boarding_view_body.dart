@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/helper/extension.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
 import 'package:fruit_hub/core/utils/color_manger.dart';
 
 import '../../../../../constant.dart';
 import '../../../../../core/helper/spacing.dart';
+import '../../../../../core/routing/route_name.dart';
+import '../../../../../core/services/shared_preferences.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../generated/l10n.dart';
 import 'on_boarding_page_view.dart';
@@ -48,7 +51,9 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           dotsCount: 2,
           decorator: DotsDecorator(
             activeColor: ColorManger.primaryColor,
-            color:currentPage==1 ? ColorManger.primaryColor: ColorManger.primaryColor.withOpacity(0.5),
+            color: currentPage == 1
+                ? ColorManger.primaryColor
+                : ColorManger.primaryColor.withOpacity(0.5),
           ),
         ),
         verticalSpacing(29),
@@ -60,7 +65,10 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
             child: CustomButton(
-              onPressed: () {},
+              onPressed: () {
+                SharedPreferencesService().setBool(isOnBoardingSeenView, true);
+                context.pushReplacementNamed(RouteName.login);
+              },
               bottomHeight: 54,
               title: S.of(context).start_now,
               backgroundColor: ColorManger.primaryColor,

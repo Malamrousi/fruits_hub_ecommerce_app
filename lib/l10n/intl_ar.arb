@@ -4,31 +4,31 @@
     "search_description": "تعرف الى افضل الفواكه الطازجة بضائع على الاطلاق والحصر للمنتجات للحد من الغير المذكورة",
     "start_now": "ابدأ الآن",
     "skip": "تخط",
-    "welcome_hello": "مرحبًا بك",
+    "welcome_hello": "مرحبًا بك في",
     "welcome_fruit": "Fruit",
     "welcome_hub": "Hub",
-    "@splash_description": {
-        "description": "Splash screen main description"
-    },
-    "@search_shop": {
-        "description": "Search and shop button text"
-    },
-    "@search_description": {
-        "description": "Search section description"
-    },
-    "@start_now": {
-        "description": "Start now button text"
-    },
-    "@skip": {
-        "description": "Skip button text"
-    },
-    "@welcome_hello": {
-        "description": "Welcome message"
-    },
-    "@welcome_fruit": {
-        "description": "Brand name part 1"
-    },
-    "@welcome_hub": {
-        "description": "Brand name part 2"
-    }
+    "login": "تسجيل دخول",
+    "signup": "حساب جديد",
+    "email_hint": "البريد الإلكتروني",
+    "password_hint": "كلمة المرور",
+    "forgot_password": "نسيت كلمة المرور؟",
+    "login_google": "تسجيل بواسطة جوجل",
+    "login_apple": "تسجيل بواسطة آبل",
+    "login_facebook": "تسجيل بواسطة فيسبوك",
+    "or": "أو",
+    "dont_have_account": "ليس لديك حساب؟",
+    "create_account": "إنشاء حساب جديد",
+    "forgot_password_title": "نسيان كلمة المرور",
+    "forgot_password_desc": "أدخل رقم هاتفك لإرسال رمز التحقق",
+    "phone_hint": "رقم الهاتف المحمول",
+    "send_code": "إرسال رمز التحقق",
+    "verify_title": "التحقق من الرمز",
+    "verify_desc": "أدخل الرمز المرسل إلى",
+    "verify_button": "تحقق من الرمز",
+    "reset_password_title": "كلمة مرور جديدة",
+    "reset_password_desc": "قم بإنشاء كلمة مرور جديدة",
+    "confirm_password_hint": "تأكيد كلمة المرور",
+    "set_new_password": "تعيين كلمة مرور جديدة",
+    "success_title": "تم تغيير كلمة المرور بنجاح",
+    "success_desc": "تم تغيير كلمة المرور بنجاح"
 }
