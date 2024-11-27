@@ -29,7 +29,10 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.8
+  dots_indicator: ^3.0.0
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.0.15
 
@@ -43,7 +46,7 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -61,11 +64,16 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo-Medium.ttf
+          weight: 500  
+        - asset: assets/fonts/Cairo-bold.ttf 
+          weight: 700  
+        - asset: assets/fonts/Cairo-SemiBold.ttf 
+          weight: 600     
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
@@ -85,4 +93,6 @@ flutter_assets:
   assets_path: assets/images/
   output_path: lib/core/utils
   filename: app_images.dart
-  field_prefix:
+  field_prefix: null
+flutter_intl:
+  enabled: true

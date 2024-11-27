@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../../../core/helper/spacing.dart';
+import '../../../../../core/utils/app_styles.dart';
+import '../../../../../generated/l10n.dart';
+
+class PageViewItem extends StatelessWidget {
+  const PageViewItem(
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.description,
+      required this.backgroundImage});
+
+  final String image, description, backgroundImage;
+  final Widget title;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          width: double.infinity,
+          height: MediaQuery.sizeOf(context).height * 0.5,
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: SvgPicture.asset(
+                  backgroundImage,
+                  fit: BoxFit.fill,
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: SvgPicture.asset(
+                  image,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Text(S.of(context).skip),
+              ),
+            ],
+          ),
+        ),
+        verticalSpacing(64),
+        title,
+        verticalSpacing(24),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            description,
+            textAlign: TextAlign.center,
+            style: AppStyles.font13stoneGraySemiBold,
+          ),
+        )
+      ],
+    );
+  }
+}
