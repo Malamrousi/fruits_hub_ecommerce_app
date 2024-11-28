@@ -6,6 +6,14 @@ class Assets {
   /// assets/images/app_icon.png
   static const String imagesAppIcon = "assets/images/app_icon.png";
 
+  /// Assets for imagesApple
+  /// assets/images/apple.svg
+  static const String imagesApple = "assets/images/apple.svg";
+
+  /// Assets for imagesFacebooksvg
+  /// assets/images/facebooksvg.svg
+  static const String imagesFacebooksvg = "assets/images/facebooksvg.svg";
+
   /// Assets for imagesFruitBasket1
   /// assets/images/fruit_basket1.svg
   static const String imagesFruitBasket1 = "assets/images/fruit_basket1.svg";
@@ -13,6 +21,10 @@ class Assets {
   /// Assets for imagesFruitBasket2
   /// assets/images/fruit_basket2.svg
   static const String imagesFruitBasket2 = "assets/images/fruit_basket2.svg";
+
+  /// Assets for imagesGoogle
+  /// assets/images/google.svg
+  static const String imagesGoogle = "assets/images/google.svg";
 
   /// Assets for imagesLogo
   /// assets/images/logo.svg

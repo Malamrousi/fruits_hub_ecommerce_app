@@ -71,7 +71,6 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               },
               bottomHeight: 54,
               title: S.of(context).start_now,
-              backgroundColor: ColorManger.primaryColor,
               textStyle: AppStyles.font16WhiteBold,
               borderRadius: kBorderRadius,
             ),

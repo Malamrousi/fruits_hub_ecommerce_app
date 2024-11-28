@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruit_hub/core/routing/route_name.dart';
 import 'package:fruit_hub/core/services/shared_preferences.dart';
+import 'package:fruit_hub/core/utils/color_manger.dart';
 
 import 'core/routing/routing.dart';
 import 'generated/l10n.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesService.init();
   runApp(const FruitsHub());
@@ -21,11 +21,12 @@ class FruitsHub extends StatelessWidget {
     return MaterialApp(
       title: 'Fruits Hub',
       theme: ThemeData(
-        fontFamily:'Cairo',
-      ),
+          fontFamily: 'Cairo',
+          colorScheme:
+              ColorScheme.fromSeed(seedColor: ColorManger.primaryColor)),
       supportedLocales: const [
         Locale('ar'),
-        Locale('en'), 
+        Locale('en'),
       ],
       localizationsDelegates: const [
         S.delegate,

@@ -27,7 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "create_account":
             MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
         "dont_have_account":
-            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+            MessageLookupByLibrary.simpleMessage("لا تمتلك حساب ؟"),
         "email_hint": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
