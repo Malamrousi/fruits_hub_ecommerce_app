@@ -1,59 +1,66 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
-import 'package:fruit_hub/core/utils/color_manger.dart';
 
+import '../../../../../constant.dart';
+import '../../../../../core/helper/spacing.dart';
 import '../../../../../generated/l10n.dart';
+import 'custom_check_box.dart';
 
-
-class TermAndCondition extends StatelessWidget {
+class TermAndCondition extends StatefulWidget {
   const TermAndCondition({super.key});
+
+  @override
+  State<TermAndCondition> createState() => _TermAndConditionState();
+}
+
+class _TermAndConditionState extends State<TermAndCondition> {
+  bool isTermAccept = false;
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SizedBox(
-          width: 24,
-          height: 24,
-          child: Checkbox(
-              value: false,
-              onChanged: (value) {},
-              checkColor: ColorManger.primaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              side: const BorderSide(color: ColorManger.dustyGray, width: .6)),
-        ),
-        Text.rich(
-  TextSpan(
-    children: [
-       TextSpan(
-        text: S.of(context).create_account,
-        style: TextStyle(
-          color: Colors.black54,
-          fontSize: 13,
-          fontFamily: 'Cairo',
-          fontWeight: FontWeight.w600,
-          height: 1.7,
-        ),
-      ),
-      TextSpan(
-        text: 'الشروط',
-        style: AppStyles.font13sLightPrimaryColorBold,
-        recognizer: TapGestureRecognizer()
-          ..onTap = () {
-     
+         CustomCheckBox(
+          onChanged: (value) {
+            setState(() {
+              isTermAccept = value;
+            });
           },
-      ),
-       TextSpan(
-        text: S.of(context).,
-        style:  AppStyles.font13sLightPrimaryColorBold,
-      ),
-    ],
-  ),
-  textAlign: TextAlign.right,
-)
+          isChecked: isTermAccept,
+        ),
+        horizontalSpacing(16),
+        Expanded(
+          child: Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: S.of(context).terms_text_start,
+                  style: AppStyles.font13stoneGraySemiBold,
+                ),
+                TextSpan(
+                  text: '  ',
+                  style: AppStyles.font13stoneGraySemiBold,
+                ),
+                TextSpan(
+                  text: S.of(context).terms_text_terms,
+                  style: AppStyles.font13sLightPrimaryColorBold,
+                  recognizer: TapGestureRecognizer()..onTap = () {},
+                ),
+                TextSpan(
+                  text: ' ',
+                  style: AppStyles.font13stoneGraySemiBold,
+                ),
+                TextSpan(
+                  text: S.of(context).terms_text_end,
+                  style: AppStyles.font13sLightPrimaryColorBold,
+                ),
+              ],
+            ),
+            textAlign: TextAlign.right,
+          ),
+        )
       ],
     );
   }

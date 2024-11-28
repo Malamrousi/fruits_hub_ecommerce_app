@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/func/is_arabic.dart';
+import 'package:fruit_hub/core/helper/extension.dart';
 import 'package:fruit_hub/core/helper/spacing.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
 import 'package:fruit_hub/core/utils/color_manger.dart';
@@ -7,6 +8,7 @@ import 'package:fruit_hub/features/auth/presentation/view/widgets/custom_divider
 import 'package:fruit_hub/features/auth/presentation/view/widgets/custom_social_auth.dart';
 
 import '../../../../../constant.dart';
+import '../../../../../core/routing/route_name.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_form_filed.dart';
@@ -65,7 +67,13 @@ class LoginViewBody extends StatelessWidget {
               textStyle: AppStyles.font16WhiteBold,
             ),
             verticalSpacing(33),
-            const DontHaveAnAccount(),
+             UserHaveAccountOrNot(
+              account: S.of(context).dont_have_account,
+              account2: S.of(context).signup,
+              onTap: () {
+                context.pushNamed(RouteName.signUp);
+              },
+            ),
             verticalSpacing(49),
             const CustomDivider(),
             verticalSpacing(33),

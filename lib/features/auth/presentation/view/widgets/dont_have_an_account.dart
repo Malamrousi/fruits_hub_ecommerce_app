@@ -6,23 +6,24 @@ import 'package:fruit_hub/generated/l10n.dart';
 
 import '../../../../../core/routing/route_name.dart';
 
-class DontHaveAnAccount extends StatelessWidget {
-  const DontHaveAnAccount({super.key});
+class UserHaveAccountOrNot extends StatelessWidget {
+  const UserHaveAccountOrNot({super.key, required this.account, required this.account2, required this.onTap});
+  final String account;
+  final String account2;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return Text.rich(
       TextSpan(
-        text: S.of(context).dont_have_account, 
+        text: account, 
         style: AppStyles.font15DustyGrayScaleBold,
         children: <TextSpan>[
           
           TextSpan(
             style: AppStyles.font15sPrimaryColorBold,
-            text: S.of(context).create_account,
-            recognizer: TapGestureRecognizer()..onTap = () {
-              context.pushNamed(RouteName.signUp);
-            },
+            text: account2,
+            recognizer: TapGestureRecognizer()..onTap = onTap,
           ),
         ],
       ),

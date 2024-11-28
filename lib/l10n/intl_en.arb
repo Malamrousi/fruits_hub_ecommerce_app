@@ -31,5 +31,8 @@
     "confirm_password_hint": "Confirm Password",
     "set_new_password": "Set New Password",
     "success_title": "Password Changed Successfully",
-    "success_desc": "Your password has been changed successfully"
+    "success_desc": "Your password has been changed successfully",
+    "terms_text_start": "By creating an account, you agree to",
+    "terms_text_terms": "Terms",
+    "terms_text_end": "and Conditions"
 }

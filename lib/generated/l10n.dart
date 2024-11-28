@@ -50,6 +50,36 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `By creating an account, you agree to`
+  String get terms_text_start {
+    return Intl.message(
+      'By creating an account, you agree to',
+      name: 'terms_text_start',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms`
+  String get terms_text_terms {
+    return Intl.message(
+      'Terms',
+      name: 'terms_text_terms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `and Conditions`
+  String get terms_text_end {
+    return Intl.message(
+      'and Conditions',
+      name: 'terms_text_end',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Discover a unique shopping experience with premium FruitHUB, our wide collection of excellent fresh fruits, and get the best deals and high quality`
   String get splash_description {
     return Intl.message(
@@ -379,11 +409,7 @@ class S {
       args: [],
     );
   }
-
 }
-
-
-
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();

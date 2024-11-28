@@ -65,6 +65,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
         "success_title":
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
+        "terms_text_end":
+            MessageLookupByLibrary.simpleMessage("والأحكام الخاصة بنا"),
+        "terms_text_start": MessageLookupByLibrary.simpleMessage(
+            "من خلال إنشاء حساب ، فإنك توافق على"),
+        "terms_text_terms": MessageLookupByLibrary.simpleMessage("الشروط"),
         "verify_button": MessageLookupByLibrary.simpleMessage("تحقق من الرمز"),
         "verify_desc":
             MessageLookupByLibrary.simpleMessage("أدخل الرمز المرسل إلى"),

@@ -31,5 +31,8 @@
     "confirm_password_hint": "تأكيد كلمة المرور",
     "set_new_password": "تعيين كلمة مرور جديدة",
     "success_title": "تم تغيير كلمة المرور بنجاح",
-    "success_desc": "تم تغيير كلمة المرور بنجاح"
+    "success_desc": "تم تغيير كلمة المرور بنجاح",
+    "terms_text_start": "من خلال إنشاء حساب ، فإنك توافق على",
+    "terms_text_terms": "الشروط",
+    "terms_text_end": "والأحكام الخاصة بنا"
 }

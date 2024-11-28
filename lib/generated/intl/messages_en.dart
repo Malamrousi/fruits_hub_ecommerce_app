@@ -64,6 +64,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your password has been changed successfully"),
         "success_title": MessageLookupByLibrary.simpleMessage(
             "Password Changed Successfully"),
+        "terms_text_end":
+            MessageLookupByLibrary.simpleMessage("and Conditions"),
+        "terms_text_start": MessageLookupByLibrary.simpleMessage(
+            "By creating an account, you agree to"),
+        "terms_text_terms": MessageLookupByLibrary.simpleMessage("Terms"),
         "verify_button": MessageLookupByLibrary.simpleMessage("Verify Code"),
         "verify_desc":
             MessageLookupByLibrary.simpleMessage("Enter the code sent to"),
