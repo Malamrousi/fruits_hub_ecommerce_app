@@ -11,6 +11,7 @@
     "signup": "حساب جديد",
     "email_hint": "البريد الإلكتروني",
     "password_hint": "كلمة المرور",
+    "name_hint": "الاسم بالكامل",
     "forgot_password": "نسيت كلمة المرور؟",
     "login_google": "تسجيل بواسطة جوجل",
     "login_apple": "تسجيل بواسطة آبل",

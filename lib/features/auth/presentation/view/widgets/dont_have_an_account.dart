@@ -1,7 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/helper/extension.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
 import 'package:fruit_hub/generated/l10n.dart';
+
+import '../../../../../core/routing/route_name.dart';
 
 class DontHaveAnAccount extends StatelessWidget {
   const DontHaveAnAccount({super.key});
@@ -17,7 +20,9 @@ class DontHaveAnAccount extends StatelessWidget {
           TextSpan(
             style: AppStyles.font15sPrimaryColorBold,
             text: S.of(context).create_account,
-            recognizer: TapGestureRecognizer()..onTap = () {},
+            recognizer: TapGestureRecognizer()..onTap = () {
+              context.pushNamed(RouteName.signUp);
+            },
           ),
         ],
       ),

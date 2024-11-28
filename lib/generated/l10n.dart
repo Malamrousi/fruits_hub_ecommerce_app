@@ -170,6 +170,16 @@ class S {
     );
   }
 
+  /// `Name`
+  String get name_hint {
+    return Intl.message(
+      'Name',
+      name: 'name_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forgot Password?`
   String get forgot_password {
     return Intl.message(
@@ -369,7 +379,11 @@ class S {
       args: [],
     );
   }
+
 }
+
+
+
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();

@@ -39,24 +39,16 @@ class CustomSocialAuth extends StatelessWidget {
       ),
       onPressed: onPressed,
       child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SvgPicture.asset(
-              socialImage,
-              height: 24,
-              width: 24,
-            ),
-            Expanded(
-              child: Center(
-                child: Text(
-                  buttonText,
-                  style: textStyle ?? AppStyles.font16GrayScaleSemiBold,
-                ),
-              ),
-            ),
-          ],
-        ),
+        child: ListTile(
+          visualDensity: const VisualDensity(vertical:VisualDensity.minimumDensity ),
+
+          leading: SvgPicture.asset(socialImage),
+          title: Text(
+            textAlign: TextAlign.center,
+            buttonText,
+            style:  AppStyles.font16GrayScaleSemiBold,
+          ),
+        )
       ),
     );
   }

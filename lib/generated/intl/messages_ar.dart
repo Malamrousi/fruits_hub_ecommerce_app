@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تسجيل بواسطة فيسبوك"),
         "login_google":
             MessageLookupByLibrary.simpleMessage("تسجيل بواسطة جوجل"),
+        "name_hint": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
         "password_hint": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "phone_hint":

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:fruit_hub/constant.dart';
 import 'package:fruit_hub/core/routing/route_name.dart';
 import 'package:fruit_hub/core/services/shared_preferences.dart';
 import 'package:fruit_hub/core/utils/color_manger.dart';
@@ -10,11 +11,15 @@ import 'generated/l10n.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesService.init();
-  runApp(const FruitsHub());
+  bool isOnBoardingSeen =
+      SharedPreferencesService().getBool(isOnBoardingSeenView);
+  runApp(FruitsHub(isOnBoardingSeen: isOnBoardingSeen));
 }
 
 class FruitsHub extends StatelessWidget {
-  const FruitsHub({super.key});
+  final bool isOnBoardingSeen;
+
+  const FruitsHub({super.key, required this.isOnBoardingSeen});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +44,7 @@ class FruitsHub extends StatelessWidget {
       },
       debugShowCheckedModeBanner: false,
       onGenerateRoute: generateRoute,
-      initialRoute: RouteName.splash,
+      initialRoute: isOnBoardingSeen ? RouteName.login : RouteName.splash,
     );
   }
 
