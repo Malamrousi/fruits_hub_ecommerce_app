@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
 
-import '../../../../../constant.dart';
 import '../../../../../core/helper/spacing.dart';
 import '../../../../../generated/l10n.dart';
 import 'custom_check_box.dart';
