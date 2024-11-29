@@ -409,7 +409,276 @@ class S {
       args: [],
     );
   }
+
+  /// `Please enter your name`
+  String get name_empty {
+    return Intl.message(
+      'Please enter your name',
+      name: 'name_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name must contain only letters and be between 2-50 characters`
+  String get name_invalid {
+    return Intl.message(
+      'Name must contain only letters and be between 2-50 characters',
+      name: 'name_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email`
+  String get email_empty {
+    return Intl.message(
+      'Please enter your email',
+      name: 'email_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email address`
+  String get email_invalid {
+    return Intl.message(
+      'Invalid email address',
+      name: 'email_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email address`
+  String get email_format {
+    return Intl.message(
+      'Please enter a valid email address',
+      name: 'email_format',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your password`
+  String get password_empty {
+    return Intl.message(
+      'Please enter your password',
+      name: 'password_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters`
+  String get password_length {
+    return Intl.message(
+      'Password must be at least 8 characters',
+      name: 'password_length',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one lowercase letter`
+  String get password_lowercase {
+    return Intl.message(
+      'Password must contain at least one lowercase letter',
+      name: 'password_lowercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one uppercase letter`
+  String get password_uppercase {
+    return Intl.message(
+      'Password must contain at least one uppercase letter',
+      name: 'password_uppercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one number`
+  String get password_number {
+    return Intl.message(
+      'Password must contain at least one number',
+      name: 'password_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one special character (!@#$%^&*)`
+  String get password_special {
+    return Intl.message(
+      'Password must contain at least one special character (!@#\$%^&*)',
+      name: 'password_special',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get password_no_match {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'password_no_match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check all fields and try again`
+  String get form_invalid {
+    return Intl.message(
+      'Please check all fields and try again',
+      name: 'form_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This field is required`
+  String get field_required {
+    return Intl.message(
+      'This field is required',
+      name: 'field_required',
+      desc: '',
+      args: [],
+    );
+  }
 }
+String get name_empty {
+    return Intl.message(
+      'Please enter your name',
+      name: 'name_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get name_invalid {
+    return Intl.message(
+      'Name must contain only letters and be between 2-50 characters',
+      name: 'name_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // New validation messages for email
+  String get email_empty {
+    return Intl.message(
+      'Please enter your email',
+      name: 'email_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get email_invalid {
+    return Intl.message(
+      'Invalid email address',
+      name: 'email_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get email_format {
+    return Intl.message(
+      'Please enter a valid email address',
+      name: 'email_format',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // New validation messages for password
+  String get password_empty {
+    return Intl.message(
+      'Please enter your password',
+      name: 'password_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get password_length {
+    return Intl.message(
+      'Password must be at least 8 characters',
+      name: 'password_length',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get password_lowercase {
+    return Intl.message(
+      'Password must contain at least one lowercase letter',
+      name: 'password_lowercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get password_uppercase {
+    return Intl.message(
+      'Password must contain at least one uppercase letter',
+      name: 'password_uppercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get password_number {
+    return Intl.message(
+      'Password must contain at least one number',
+      name: 'password_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get password_special {
+    return Intl.message(
+      'Password must contain at least one special character (!@#\$%^&*)',
+      name: 'password_special',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get password_no_match {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'password_no_match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // New general form validation messages
+  String get form_invalid {
+    return Intl.message(
+      'Please check all fields and try again',
+      name: 'form_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get field_required {
+    return Intl.message(
+      'This field is required',
+      name: 'field_required',
+      desc: '',
+      args: [],
+    );
+  }
+
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();

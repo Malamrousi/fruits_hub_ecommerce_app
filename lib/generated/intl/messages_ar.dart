@@ -28,22 +28,50 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("لا تمتلك حساب ؟"),
+        "email_empty": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال البريد الإلكتروني"),
+        "email_format": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال بريد إلكتروني صحيح"),
         "email_hint": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "email_invalid":
+            MessageLookupByLibrary.simpleMessage("البريد الإلكتروني غير صالح"),
+        "field_required":
+            MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
         "forgot_password_desc": MessageLookupByLibrary.simpleMessage(
             "أدخل رقم هاتفك لإرسال رمز التحقق"),
         "forgot_password_title":
             MessageLookupByLibrary.simpleMessage("نسيان كلمة المرور"),
+        "form_invalid": MessageLookupByLibrary.simpleMessage(
+            "يرجى التحقق من جميع الحقول والمحاولة مرة أخرى"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
         "login_apple": MessageLookupByLibrary.simpleMessage("تسجيل بواسطة آبل"),
         "login_facebook":
             MessageLookupByLibrary.simpleMessage("تسجيل بواسطة فيسبوك"),
         "login_google":
             MessageLookupByLibrary.simpleMessage("تسجيل بواسطة جوجل"),
+        "name_empty":
+            MessageLookupByLibrary.simpleMessage("الرجاء إدخال الاسم"),
         "name_hint": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
+        "name_invalid": MessageLookupByLibrary.simpleMessage(
+            "يجب أن يحتوي الاسم على أحرف فقط وبين 2-50 حرفًا"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
+        "password_empty":
+            MessageLookupByLibrary.simpleMessage("الرجاء إدخال كلمة المرور"),
         "password_hint": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "password_length": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تكون كلمة المرور 8 أحرف على الأقل"),
+        "password_lowercase": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل"),
+        "password_no_match":
+            MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة"),
+        "password_number": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل"),
+        "password_special": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل (!@#\$%^&*)"),
+        "password_uppercase": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل"),
         "phone_hint":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف المحمول"),
         "reset_password_desc":

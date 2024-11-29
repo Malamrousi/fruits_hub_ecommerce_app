@@ -45,6 +45,7 @@ dependencies:
   flutter_svg: ^2.0.15
   get_it: ^8.0.2
   google_sign_in: ^6.2.2
+  modal_progress_hud_nsn: ^0.5.1
   shared_preferences: ^2.3.3
   sign_in_with_apple: ^6.1.3
 

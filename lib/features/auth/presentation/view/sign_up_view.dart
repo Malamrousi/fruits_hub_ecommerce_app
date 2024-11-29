@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/services/get_it_services.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
+import 'package:fruit_hub/features/auth/presentation/cubits/cubit/signup_cubit.dart';
+import 'package:fruit_hub/features/auth/presentation/view/widgets/sign_up_view_body_bloc_consumer.dart';
 
 import '../../../../generated/l10n.dart';
-import 'widgets/sign_up_view_body.dart';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(title: S.of(context).signup, context: context),
-      body: const SafeArea(child: SignUpViewBody()),
+    return BlocProvider(
+      create: (context) => getIT.get<SignupCubit>(),
+      child: Scaffold(
+        appBar: buildAppBar(title: S.of(context).signup, context: context),
+        body: const SafeArea(child: SignUpViewBodyBlocConsumer()),
+      ),
     );
   }
 }
+

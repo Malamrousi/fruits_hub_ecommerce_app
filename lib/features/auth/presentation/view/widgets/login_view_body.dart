@@ -15,9 +15,15 @@ import '../../../../../core/widgets/custom_text_form_filed.dart';
 import '../../../../../generated/l10n.dart';
 import 'dont_have_an_account.dart';
 
-class LoginViewBody extends StatelessWidget {
+class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
 
+  @override
+  State<LoginViewBody> createState() => _LoginViewBodyState();
+}
+
+class _LoginViewBodyState extends State<LoginViewBody> {
+  bool obscureTextIcon  = true;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -27,7 +33,7 @@ class LoginViewBody extends StatelessWidget {
           children: [
             verticalSpacing(24),
             CustomTextFormFiled(
-              obscureText: false,
+              obscureText: obscureTextIcon,
               controller: TextEditingController(),
               keyboardType: TextInputType.emailAddress,
               hintText: S.of(context).email_hint,
@@ -35,14 +41,19 @@ class LoginViewBody extends StatelessWidget {
             ),
             verticalSpacing(16),
             CustomTextFormFiled(
-              suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.visibility,
-                    color: ColorManger.dustyGray,
-                    size: 22,
-                  )),
-              obscureText: true,
+               suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  obscureTextIcon = !obscureTextIcon;
+                });
+              },
+              child:  Icon(
+               obscureTextIcon ? Icons.visibility_off : Icons.visibility ,
+                color: ColorManger.dustyGray,
+                size: 22,
+              ),
+            ),
+              obscureText:obscureTextIcon ,
               controller: TextEditingController(),
               keyboardType: TextInputType.emailAddress,
               hintText: S.of(context).password_hint,

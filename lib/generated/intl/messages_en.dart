@@ -28,22 +28,50 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create Account"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "email_empty":
+            MessageLookupByLibrary.simpleMessage("Please enter your email"),
+        "email_format": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid email address"),
         "email_hint": MessageLookupByLibrary.simpleMessage("Email"),
+        "email_invalid":
+            MessageLookupByLibrary.simpleMessage("Invalid email address"),
+        "field_required":
+            MessageLookupByLibrary.simpleMessage("This field is required"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "forgot_password_desc": MessageLookupByLibrary.simpleMessage(
             "Enter your phone number to send verification code"),
         "forgot_password_title":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "form_invalid": MessageLookupByLibrary.simpleMessage(
+            "Please check all fields and try again"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_apple": MessageLookupByLibrary.simpleMessage("Login with Apple"),
         "login_facebook":
             MessageLookupByLibrary.simpleMessage("Login with Facebook"),
         "login_google":
             MessageLookupByLibrary.simpleMessage("Login with Google"),
+        "name_empty":
+            MessageLookupByLibrary.simpleMessage("Please enter your name"),
         "name_hint": MessageLookupByLibrary.simpleMessage("Name"),
+        "name_invalid": MessageLookupByLibrary.simpleMessage(
+            "Name must contain only letters and be between 2-50 characters"),
         "or": MessageLookupByLibrary.simpleMessage("OR"),
+        "password_empty":
+            MessageLookupByLibrary.simpleMessage("Please enter your password"),
         "password_hint": MessageLookupByLibrary.simpleMessage("Password"),
+        "password_length": MessageLookupByLibrary.simpleMessage(
+            "Password must be at least 8 characters"),
+        "password_lowercase": MessageLookupByLibrary.simpleMessage(
+            "Password must contain at least one lowercase letter"),
+        "password_no_match":
+            MessageLookupByLibrary.simpleMessage("Passwords do not match"),
+        "password_number": MessageLookupByLibrary.simpleMessage(
+            "Password must contain at least one number"),
+        "password_special": MessageLookupByLibrary.simpleMessage(
+            "Password must contain at least one special character (!@#\$%^&*)"),
+        "password_uppercase": MessageLookupByLibrary.simpleMessage(
+            "Password must contain at least one uppercase letter"),
         "phone_hint": MessageLookupByLibrary.simpleMessage("Mobile Number"),
         "reset_password_desc":
             MessageLookupByLibrary.simpleMessage("Create new password"),

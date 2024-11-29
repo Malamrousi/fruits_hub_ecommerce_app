@@ -34,5 +34,22 @@
     "success_desc": "Your password has been changed successfully",
     "terms_text_start": "By creating an account, you agree to",
     "terms_text_terms": "Terms",
-    "terms_text_end": "and Conditions"
+    "terms_text_end": "and Conditions",
+    "name_empty": "Please enter your name",
+    "name_invalid": "Name must contain only letters and be between 2-50 characters",
+    
+    "email_empty": "Please enter your email",
+    "email_invalid": "Invalid email address",
+    "email_format": "Please enter a valid email address",
+    
+    "password_empty": "Please enter your password",
+    "password_length": "Password must be at least 8 characters",
+    "password_lowercase": "Password must contain at least one lowercase letter",
+    "password_uppercase": "Password must contain at least one uppercase letter",
+    "password_number": "Password must contain at least one number",
+    "password_special": "Password must contain at least one special character (!@#$%^&*)",
+    "password_no_match": "Passwords do not match",
+    
+    "form_invalid": "Please check all fields and try again",
+    "field_required": "This field is required"
 }
