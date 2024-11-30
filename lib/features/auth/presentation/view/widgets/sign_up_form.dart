@@ -15,9 +15,12 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
+
   @override
   Widget build(BuildContext context) {
     return Form(
+  
+        
       key: context.read<SignupCubit>().formKey,
       child: Column(
         children: [

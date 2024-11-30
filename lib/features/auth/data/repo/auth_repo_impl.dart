@@ -49,4 +49,51 @@ class AuthRepoImpl extends AuthRepo {
               : 'An error occurred, please try again later'));
     }
   }
+
+  @override
+  Future<Either<Failures, UserEntity>> loginInWithGoogle() async {
+    try {
+      var user = await fireBaseAuthServices.signInWithGoogle();
+      return right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return left(ServerFailure(message: e.message));
+    } catch (e) {
+      log('Error in signing in with google: ${e.toString()}');
+      return left(ServerFailure(
+          message: isArabic()
+              ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
+              : 'An error occurred, please try again later'));
+    }
+  }
+  
+  @override
+  Future<Either<Failures, UserEntity>> loginInWithFacebook() async{
+  try {
+    var user = await fireBaseAuthServices.signInWithFacebook();
+    return right(UserModel.fromFirebaseUser(user));
+  } on CustomException catch (e) {
+    return left(ServerFailure(message: e.message));
+  } catch (e) {
+    log('Error in signing in with facebook: ${e.toString()}');
+    return left(ServerFailure(
+        message: isArabic()
+            ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
+            : 'An error occurred, please try again later'));
+  }}
+  
+  @override
+  Future<Either<Failures, UserEntity>> loginInWithApple() async{
+   try {
+    var user = await fireBaseAuthServices.signInWithApple();
+    return right(UserModel.fromFirebaseUser(user));
+  } on CustomException catch (e) {
+    return left(ServerFailure(message: e.message));
+  } catch (e) {
+    log('Error in signing in with apple: ${e.toString()}');
+    return left(ServerFailure(  
+        message: isArabic()
+            ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
+            : 'An error occurred, please try again later'));
+  }
+  }
 }

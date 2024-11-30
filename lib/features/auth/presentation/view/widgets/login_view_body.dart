@@ -71,16 +71,26 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             const CustomDivider(),
             verticalSpacing(33),
             CustomSocialAuth(
-                buttonText: S.of(context).login_google,
-                socialImage: Assets.imagesGoogle),
+              onPressed: () {
+                context.read<LoginCubit>().loginWithGoogle();
+              },
+              buttonText: S.of(context).login_google,
+              socialImage: Assets.imagesGoogle,
+            ),
             verticalSpacing(16),
             CustomSocialAuth(
-                buttonText: S.of(context).login_apple,
-                socialImage: Assets.imagesApple),
-            verticalSpacing(16),
-            CustomSocialAuth(
+                onPressed: () {
+                  context.read<LoginCubit>().loginWithFacebook();
+                },
                 buttonText: S.of(context).login_facebook,
                 socialImage: Assets.imagesFacebooksvg),
+            verticalSpacing(16),
+            CustomSocialAuth(
+                onPressed: () {
+                  context.read<LoginCubit>().loginWithApple();
+                },
+                buttonText: S.of(context).login_apple,
+                socialImage: Assets.imagesApple),
           ],
         ),
       ),

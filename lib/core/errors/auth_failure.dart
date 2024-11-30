@@ -34,6 +34,10 @@ class AuthFailure {
         return isArabic()
             ? 'كلمة المرور اوالبريد الإلكتروني غير صحيح'
             : 'Wrong email or password provided for that user.';
+      case 'invalid-credential':
+        return isArabic()
+            ?"معلومات التسجيل غير صالحة"
+            : "Invalid credential";
       default:
         return isArabic()
             ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
