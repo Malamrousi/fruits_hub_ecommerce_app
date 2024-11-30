@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/func/is_arabic.dart';
 import 'package:fruit_hub/core/helper/extension.dart';
 import 'package:fruit_hub/core/helper/spacing.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
-import 'package:fruit_hub/core/utils/color_manger.dart';
 import 'package:fruit_hub/features/auth/presentation/view/widgets/custom_divider.dart';
 import 'package:fruit_hub/features/auth/presentation/view/widgets/custom_social_auth.dart';
 
@@ -11,9 +11,10 @@ import '../../../../../constant.dart';
 import '../../../../../core/routing/route_name.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../../core/widgets/custom_text_form_filed.dart';
 import '../../../../../generated/l10n.dart';
+import '../../cubits/cubit/login_cubit.dart';
 import 'dont_have_an_account.dart';
+import 'login_form.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -23,7 +24,6 @@ class LoginViewBody extends StatefulWidget {
 }
 
 class _LoginViewBodyState extends State<LoginViewBody> {
-  bool obscureTextIcon  = true;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -32,33 +32,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         child: Column(
           children: [
             verticalSpacing(24),
-            CustomTextFormFiled(
-              obscureText: obscureTextIcon,
-              controller: TextEditingController(),
-              keyboardType: TextInputType.emailAddress,
-              hintText: S.of(context).email_hint,
-              validator: (value) {},
-            ),
-            verticalSpacing(16),
-            CustomTextFormFiled(
-               suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  obscureTextIcon = !obscureTextIcon;
-                });
-              },
-              child:  Icon(
-               obscureTextIcon ? Icons.visibility_off : Icons.visibility ,
-                color: ColorManger.dustyGray,
-                size: 22,
-              ),
-            ),
-              obscureText:obscureTextIcon ,
-              controller: TextEditingController(),
-              keyboardType: TextInputType.emailAddress,
-              hintText: S.of(context).password_hint,
-              validator: (value) {},
-            ),
+            const LoginForm(),
             verticalSpacing(16),
             Align(
               alignment:
@@ -73,12 +47,20 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             ),
             verticalSpacing(16),
             CustomButton(
-              onPressed: () {},
+              onPressed: () {
+                if (context
+                    .read<LoginCubit>()
+                    .formKey
+                    .currentState!
+                    .validate()) {
+                  context.read<LoginCubit>().loginUserWidthEmailAndPassword();
+                }
+              },
               title: S.of(context).login,
               textStyle: AppStyles.font16WhiteBold,
             ),
             verticalSpacing(33),
-             UserHaveAccountOrNot(
+            UserHaveAccountOrNot(
               account: S.of(context).dont_have_account,
               account2: S.of(context).signup,
               onTap: () {
@@ -91,12 +73,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             CustomSocialAuth(
                 buttonText: S.of(context).login_google,
                 socialImage: Assets.imagesGoogle),
-                  verticalSpacing(16),
-                          CustomSocialAuth(
+            verticalSpacing(16),
+            CustomSocialAuth(
                 buttonText: S.of(context).login_apple,
                 socialImage: Assets.imagesApple),
-                       verticalSpacing(16),
-                          CustomSocialAuth(
+            verticalSpacing(16),
+            CustomSocialAuth(
                 buttonText: S.of(context).login_facebook,
                 socialImage: Assets.imagesFacebooksvg),
           ],

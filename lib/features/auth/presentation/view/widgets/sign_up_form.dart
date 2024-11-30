@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helper/spacing.dart';
+import 'package:fruit_hub/core/widgets/custom_password_filed.dart';
+import 'package:fruit_hub/features/auth/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
 import '../../../../../core/helper/app_regx.dart';
-import '../../../../../core/utils/color_manger.dart';
 import '../../../../../core/widgets/custom_text_form_filed.dart';
 import '../../../../../generated/l10n.dart';
-import '../../cubits/cubit/signup_cubit.dart';
+
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
 
@@ -14,14 +15,12 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
-  bool obscureTextIcon  = true;
   @override
   Widget build(BuildContext context) {
     return Form(
       key: context.read<SignupCubit>().formKey,
       child: Column(
         children: [
-          // Name field validation
           CustomTextFormFiled(
             controller: context.read<SignupCubit>().nameController,
             hintText: S.of(context).name_hint,
@@ -52,51 +51,10 @@ class _SignUpFormState extends State<SignUpForm> {
             },
           ),
           verticalSpacing(16),
-          CustomTextFormFiled(
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  obscureTextIcon  = !obscureTextIcon ;
-                });
-              },
-              child:  Icon(
-               obscureTextIcon  ? Icons.visibility_off : Icons.visibility ,
-                color: ColorManger.dustyGray,
-                size: 22,
-              ),
-            ),
-            obscureText: obscureTextIcon ,
-            controller: context.read<SignupCubit>().passwordController,
-            keyboardType: TextInputType.text,
-            hintText: S.of(context).password_hint,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return S.of(context).password_empty;
-              }
-              if (!AppRegex.hasMinLength(value)) {
-                return S.of(context).password_length;
-              }
-              if (!AppRegex.hasLowerCase(value)) {
-                return S.of(context).password_lowercase;
-              }
-              if (!AppRegex.hasUpperCase(value)) {
-                return S.of(context).password_uppercase;
-              }
-              if (!AppRegex.hasNumber(value)) {
-                return S.of(context).password_number;
-              }
-              if (!AppRegex.hasSpecialCharacter(value)) {
-                return S.of(context).password_special;
-              }
-              if (value !=
-                  context.read<SignupCubit>().passwordController.text) {
-                return S.of(context).password_no_match;
-              }
-              return null;
-            },
-          ),
+           PasswordFiled(
+            passwordController: context.read<SignupCubit>().passwordController,
+           ),
           verticalSpacing(16),
-        
         ],
       ),
     );

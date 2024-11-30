@@ -7,7 +7,9 @@ import '../../../../../generated/l10n.dart';
 import 'custom_check_box.dart';
 
 class TermAndCondition extends StatefulWidget {
-  const TermAndCondition({super.key});
+  const TermAndCondition({super.key, required this.onChanged});
+
+  final ValueChanged<bool> onChanged;
 
   @override
   State<TermAndCondition> createState() => _TermAndConditionState();
@@ -15,6 +17,7 @@ class TermAndCondition extends StatefulWidget {
 
 class _TermAndConditionState extends State<TermAndCondition> {
   bool isTermAccept = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +28,7 @@ class _TermAndConditionState extends State<TermAndCondition> {
           onChanged: (value) {
             setState(() {
               isTermAccept = value;
+              widget.onChanged(value);
             });
           },
           isChecked: isTermAccept,

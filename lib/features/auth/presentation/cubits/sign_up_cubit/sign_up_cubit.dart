@@ -1,10 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/features/auth/domain/entities/user_entity.dart';
 import 'package:fruit_hub/features/auth/domain/repo/auth_repo.dart';
-import 'package:meta/meta.dart';
-
-part 'signup_state.dart';
+import 'package:fruit_hub/features/auth/presentation/cubits/sign_up_cubit/sign_up_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignupCubit extends Cubit<SignupState> {
   SignupCubit(this.authRepo) : super(SignupInitial());

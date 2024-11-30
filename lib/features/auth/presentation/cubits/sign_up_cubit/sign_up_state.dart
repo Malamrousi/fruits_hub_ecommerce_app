@@ -1,6 +1,10 @@
-part of 'signup_cubit.dart';
 
-@immutable
+import 'package:fruit_hub/features/auth/domain/entities/user_entity.dart';
+
+
+
+
+
 sealed class SignupState {}
 
 final class SignupInitial extends SignupState {}

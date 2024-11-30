@@ -1,59 +1,41 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_hub/core/errors/exception.dart';
-import 'package:fruit_hub/core/func/is_arabic.dart';
-import 'dart:developer';
+import 'package:fruit_hub/core/errors/auth_failure.dart';
 
 class FireBaseAuthServices {
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final AuthFailure authFailure = AuthFailure();
   Future<User> createUserWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
     try {
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
       return credential.user!;
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        throw CustomException(
-            message: isArabic()
-                ? 'كلمة المرور ضعيفة'
-                : 'Password should be at least 6 characters');
-      } else if (e.code == 'email-already-in-use') {
-        throw CustomException(
-            message: isArabic()
-                ? 'الحساب موجود بالفعل لهذا البريد الإلكتروني'
-                : 'The account already exists for that email.');
-      } else if (e.code == 'invalid-email') {
-        throw CustomException(
-            message: isArabic()
-                ? 'عنوان البريد الإلكتروني غير صالح'
-                : 'The email address is badly formatted.');
-      } else if (e.code == 'operation-not-allowed') {
-        throw CustomException(
-            message: isArabic()
-                ? 'حسابات البريد الإلكتروني غير ممكنة'
-                : 'Email/password accounts are not enabled. Please contact support.');
-      } else if (e.code == 'network-request-failed') {
-        throw CustomException(
-            message: isArabic()
-                ? 'خطأ في الاتصال بالشبكة'
-                : 'Network error. Please check your internet connection.');
-      } else {
-        throw CustomException(
-            message: isArabic()
-                ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-                : 'An unexpected error occurred: ${e.message}');
-      }
+      throw CustomException(message: authFailure.handleFirebaseAuthError(e));
     } catch (e) {
-      log(e.toString());
-      throw CustomException(
-     
-          message: isArabic()
-              ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-              : 'An error occurred, please try again later.');
+      throw CustomException(message: authFailure.handleGeneralError(e));
+    }
+  }
+
+  Future<User> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final credential = await _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      throw CustomException(message: authFailure.handleFirebaseAuthError(e));
+    } catch (e) {
+      throw CustomException(message: authFailure.handleGeneralError(e));
     }
   }
 }

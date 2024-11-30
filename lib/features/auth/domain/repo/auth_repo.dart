@@ -6,4 +6,7 @@ import '../../../../core/errors/failures.dart';
 abstract class AuthRepo {
   Future<Either<Failures, UserEntity>> createUserWidthEmailAndPassword(
       {required String email, required String password, required String name});
+
+    Future<Either<Failures, UserEntity>> loginInWithEmailAndPassword(
+      {required String email, required String password});  
 }

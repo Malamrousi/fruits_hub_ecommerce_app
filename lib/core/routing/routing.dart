@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/routing/route_name.dart';
 import 'package:fruit_hub/features/auth/presentation/view/login_view.dart';
 import 'package:fruit_hub/features/auth/presentation/view/sign_up_view.dart';
+import 'package:fruit_hub/features/home/presentation/view/home_view.dart';
 import 'package:fruit_hub/features/splash/presentation/view/splash_view.dart';
 
 import '../../features/on_boardibg/presentation/view/on_boarding_view.dart';
@@ -23,6 +24,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case RouteName.signUp:
       return MaterialPageRoute(
         builder: (_) => const SignUpView(),
+      );
+    case RouteName.home:
+      return MaterialPageRoute(
+        builder: (_) => const HomeView(),
       );
     default:
       return MaterialPageRoute(
