@@ -14,4 +14,12 @@ class UserModel extends UserEntity {
       uid: user.uid,
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'email': email,
+      'name': name,
+      'uid': uid,
+    };
+  }
 }
