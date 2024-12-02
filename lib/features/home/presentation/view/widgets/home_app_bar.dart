@@ -3,7 +3,6 @@ import 'package:fruit_hub/core/utils/app_images.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 
-import '../../../../../core/utils/color_manger.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
