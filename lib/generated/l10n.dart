@@ -549,6 +549,186 @@ class S {
       args: [],
     );
   }
+
+  /// `Good Morning`
+  String get good_morning {
+    return Intl.message(
+      'Good Morning',
+      name: 'good_morning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for...`
+  String get search_for {
+    return Intl.message(
+      'Search for...',
+      name: 'search_for',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show All`
+  String get show_all {
+    return Intl.message(
+      'Show All',
+      name: 'show_all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `25% Discount`
+  String get discount {
+    return Intl.message(
+      '25% Discount',
+      name: 'discount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shop Now`
+  String get shop_now {
+    return Intl.message(
+      'Shop Now',
+      name: 'shop_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Most Popular`
+  String get most_popular {
+    return Intl.message(
+      'Most Popular',
+      name: 'most_popular',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fruits`
+  String get fruits {
+    return Intl.message(
+      'Fruits',
+      name: 'fruits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Watermelon`
+  String get watermelon {
+    return Intl.message(
+      'Watermelon',
+      name: 'watermelon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Strawberry`
+  String get strawberry {
+    return Intl.message(
+      'Strawberry',
+      name: 'strawberry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Avocado`
+  String get avocado {
+    return Intl.message(
+      'Avocado',
+      name: 'avocado',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pineapple`
+  String get pineapple {
+    return Intl.message(
+      'Pineapple',
+      name: 'pineapple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Banana`
+  String get banana {
+    return Intl.message(
+      'Banana',
+      name: 'banana',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mango`
+  String get mango {
+    return Intl.message(
+      'Mango',
+      name: 'mango',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EGP / 1KG`
+  String get price_unit {
+    return Intl.message(
+      'EGP / 1KG',
+      name: 'price_unit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message(
+      'Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cart`
+  String get cart {
+    return Intl.message(
+      'Cart',
+      name: 'cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message(
+      'Categories',
+      name: 'categories',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

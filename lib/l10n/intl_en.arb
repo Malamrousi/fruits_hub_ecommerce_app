@@ -51,5 +51,23 @@
     "password_no_match": "Passwords do not match",
     
     "form_invalid": "Please check all fields and try again",
-    "field_required": "This field is required"
+    "field_required": "This field is required",
+    "good_morning": "Good Morning",
+    "search_for": "Search for...",
+    "show_all": "Show All",
+    "discount": "25% Discount",
+    "shop_now": "Shop Now",
+    "most_popular": "Most Popular",
+    "fruits": "Fruits",
+    "watermelon": "Watermelon",
+    "strawberry": "Strawberry",
+    "avocado": "Avocado",
+    "pineapple": "Pineapple",
+    "banana": "Banana",
+    "mango": "Mango",
+    "price_unit": "EGP / 1KG",
+    "home": "Home",
+    "profile": "Profile",
+    "cart": "Cart",
+    "categories": "Categories"
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,9 +33,11 @@ class FruitsHub extends StatelessWidget {
   final bool isOnBoardingSeen;
 
   const FruitsHub({super.key, required this.isOnBoardingSeen});
+  
 
   @override
   Widget build(BuildContext context) {
+      final User? user = FirebaseAuth.instance.currentUser;
     return MaterialApp(
       title: 'Fruits Hub',
       theme: ThemeData(
@@ -56,8 +59,13 @@ class FruitsHub extends StatelessWidget {
       },
       debugShowCheckedModeBanner: false,
       onGenerateRoute: generateRoute,
-      initialRoute: isOnBoardingSeen ? RouteName.login : RouteName.splash,
+      initialRoute: user != null
+          ? RouteName.home
+          : isOnBoardingSeen
+              ? RouteName.login
+              : RouteName.onBoarding,
     );
+    
   }
 
   Locale supportedLocalesLang(
@@ -69,4 +77,6 @@ class FruitsHub extends StatelessWidget {
     }
     return const Locale('ar');
   }
+
+
 }

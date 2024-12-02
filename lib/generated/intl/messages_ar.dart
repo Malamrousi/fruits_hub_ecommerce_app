@@ -22,10 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "avocado": MessageLookupByLibrary.simpleMessage("افوكادو"),
+        "banana": MessageLookupByLibrary.simpleMessage("موز"),
+        "cart": MessageLookupByLibrary.simpleMessage("السلة"),
+        "categories": MessageLookupByLibrary.simpleMessage("الفئات"),
         "confirm_password_hint":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "create_account":
             MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
+        "discount": MessageLookupByLibrary.simpleMessage("خصم ٢٥٪"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("لا تمتلك حساب ؟"),
         "email_empty": MessageLookupByLibrary.simpleMessage(
@@ -45,12 +50,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسيان كلمة المرور"),
         "form_invalid": MessageLookupByLibrary.simpleMessage(
             "يرجى التحقق من جميع الحقول والمحاولة مرة أخرى"),
+        "fruits": MessageLookupByLibrary.simpleMessage("فواكة"),
+        "good_morning": MessageLookupByLibrary.simpleMessage("صباح الخير"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
         "login_apple": MessageLookupByLibrary.simpleMessage("تسجيل بواسطة آبل"),
         "login_facebook":
             MessageLookupByLibrary.simpleMessage("تسجيل بواسطة فيسبوك"),
         "login_google":
             MessageLookupByLibrary.simpleMessage("تسجيل بواسطة جوجل"),
+        "mango": MessageLookupByLibrary.simpleMessage("مانجو"),
+        "most_popular": MessageLookupByLibrary.simpleMessage("الأكثر مبيعاً"),
         "name_empty":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال الاسم"),
         "name_hint": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
@@ -74,21 +84,28 @@ class MessageLookup extends MessageLookupByLibrary {
             "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل"),
         "phone_hint":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف المحمول"),
+        "pineapple": MessageLookupByLibrary.simpleMessage("اناناس"),
+        "price_unit": MessageLookupByLibrary.simpleMessage("جنية / ١كجم"),
+        "profile": MessageLookupByLibrary.simpleMessage("حسابي"),
         "reset_password_desc":
             MessageLookupByLibrary.simpleMessage("قم بإنشاء كلمة مرور جديدة"),
         "reset_password_title":
             MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
         "search_description": MessageLookupByLibrary.simpleMessage(
             "تعرف الى افضل الفواكه الطازجة بضائع على الاطلاق والحصر للمنتجات للحد من الغير المذكورة"),
+        "search_for": MessageLookupByLibrary.simpleMessage("ابحث عن..."),
         "search_shop": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
         "send_code": MessageLookupByLibrary.simpleMessage("إرسال رمز التحقق"),
         "set_new_password":
             MessageLookupByLibrary.simpleMessage("تعيين كلمة مرور جديدة"),
+        "shop_now": MessageLookupByLibrary.simpleMessage("تسوق الان"),
+        "show_all": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "signup": MessageLookupByLibrary.simpleMessage("حساب جديد"),
         "skip": MessageLookupByLibrary.simpleMessage("تخط"),
         "splash_description": MessageLookupByLibrary.simpleMessage(
             "اكتشف تجربة تسوق فريدة مع FruitHUB المميز، مجموعتنا الواسعة من الفواكهة الطازجة الممتازة، واحصل على افضل العروض والجودة العالية"),
         "start_now": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
+        "strawberry": MessageLookupByLibrary.simpleMessage("فراولة"),
         "success_desc":
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
         "success_title":
@@ -102,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "verify_desc":
             MessageLookupByLibrary.simpleMessage("أدخل الرمز المرسل إلى"),
         "verify_title": MessageLookupByLibrary.simpleMessage("التحقق من الرمز"),
+        "watermelon": MessageLookupByLibrary.simpleMessage("بطيخ"),
         "welcome_fruit": MessageLookupByLibrary.simpleMessage("Fruit"),
         "welcome_hello": MessageLookupByLibrary.simpleMessage("مرحبًا بك في"),
         "welcome_hub": MessageLookupByLibrary.simpleMessage("Hub")

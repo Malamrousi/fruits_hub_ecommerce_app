@@ -51,6 +51,24 @@
   "password_no_match": "كلمات المرور غير متطابقة",
   
   "form_invalid": "يرجى التحقق من جميع الحقول والمحاولة مرة أخرى",
-  "field_required": "هذا الحقل مطلوب"
+  "field_required": "هذا الحقل مطلوب",
+  "good_morning": "صباح الخير",
+  "search_for": "ابحث عن...",
+  "show_all": "عرض الكل",
+  "discount": "خصم ٢٥٪",
+  "shop_now": "تسوق الان",
+  "most_popular": "الأكثر مبيعاً",
+  "fruits": "فواكة",
+  "watermelon": "بطيخ",
+  "strawberry": "فراولة",
+  "avocado": "افوكادو",
+  "pineapple": "اناناس",
+  "banana": "موز",
+  "mango": "مانجو",
+  "price_unit": "جنية / ١كجم",
+  "home": "الرئيسية",
+  "profile": "حسابي",
+  "cart": "السلة",
+  "categories": "الفئات"
     
 }

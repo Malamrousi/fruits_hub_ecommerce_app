@@ -22,10 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "avocado": MessageLookupByLibrary.simpleMessage("Avocado"),
+        "banana": MessageLookupByLibrary.simpleMessage("Banana"),
+        "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+        "categories": MessageLookupByLibrary.simpleMessage("Categories"),
         "confirm_password_hint":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "create_account":
             MessageLookupByLibrary.simpleMessage("Create Account"),
+        "discount": MessageLookupByLibrary.simpleMessage("25% Discount"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "email_empty":
@@ -45,12 +50,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "form_invalid": MessageLookupByLibrary.simpleMessage(
             "Please check all fields and try again"),
+        "fruits": MessageLookupByLibrary.simpleMessage("Fruits"),
+        "good_morning": MessageLookupByLibrary.simpleMessage("Good Morning"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_apple": MessageLookupByLibrary.simpleMessage("Login with Apple"),
         "login_facebook":
             MessageLookupByLibrary.simpleMessage("Login with Facebook"),
         "login_google":
             MessageLookupByLibrary.simpleMessage("Login with Google"),
+        "mango": MessageLookupByLibrary.simpleMessage("Mango"),
+        "most_popular": MessageLookupByLibrary.simpleMessage("Most Popular"),
         "name_empty":
             MessageLookupByLibrary.simpleMessage("Please enter your name"),
         "name_hint": MessageLookupByLibrary.simpleMessage("Name"),
@@ -73,21 +83,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "password_uppercase": MessageLookupByLibrary.simpleMessage(
             "Password must contain at least one uppercase letter"),
         "phone_hint": MessageLookupByLibrary.simpleMessage("Mobile Number"),
+        "pineapple": MessageLookupByLibrary.simpleMessage("Pineapple"),
+        "price_unit": MessageLookupByLibrary.simpleMessage("EGP / 1KG"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "reset_password_desc":
             MessageLookupByLibrary.simpleMessage("Create new password"),
         "reset_password_title":
             MessageLookupByLibrary.simpleMessage("Reset Password"),
         "search_description": MessageLookupByLibrary.simpleMessage(
             "Learn about the best fresh fruits, goods ever, and exclusive products to limit unlisted items"),
+        "search_for": MessageLookupByLibrary.simpleMessage("Search for..."),
         "search_shop": MessageLookupByLibrary.simpleMessage("Search and Shop"),
         "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
         "set_new_password":
             MessageLookupByLibrary.simpleMessage("Set New Password"),
+        "shop_now": MessageLookupByLibrary.simpleMessage("Shop Now"),
+        "show_all": MessageLookupByLibrary.simpleMessage("Show All"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "splash_description": MessageLookupByLibrary.simpleMessage(
             "Discover a unique shopping experience with premium FruitHUB, our wide collection of excellent fresh fruits, and get the best deals and high quality"),
         "start_now": MessageLookupByLibrary.simpleMessage("Start Now"),
+        "strawberry": MessageLookupByLibrary.simpleMessage("Strawberry"),
         "success_desc": MessageLookupByLibrary.simpleMessage(
             "Your password has been changed successfully"),
         "success_title": MessageLookupByLibrary.simpleMessage(
@@ -102,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter the code sent to"),
         "verify_title":
             MessageLookupByLibrary.simpleMessage("Code Verification"),
+        "watermelon": MessageLookupByLibrary.simpleMessage("Watermelon"),
         "welcome_fruit": MessageLookupByLibrary.simpleMessage("Fruit"),
         "welcome_hello": MessageLookupByLibrary.simpleMessage("Welcome to"),
         "welcome_hub": MessageLookupByLibrary.simpleMessage("Hub")
