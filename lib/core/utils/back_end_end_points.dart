@@ -1,3 +1,4 @@
 class BackEndEndPoints {
-  static const String userEndPoint = 'users';
+  static const String addUserEndPoint = 'users';  
+  static const String getUserEndPoint = 'users';  
 }

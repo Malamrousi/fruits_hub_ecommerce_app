@@ -8,7 +8,7 @@ import 'package:fruit_hub/core/errors/exception.dart';
 import 'package:fruit_hub/core/errors/failures.dart';
 import 'package:fruit_hub/core/func/is_arabic.dart';
 import 'package:fruit_hub/core/services/data_base_services.dart';
-import 'package:fruit_hub/core/services/fire_base_auth_services.dart';
+import 'package:fruit_hub/features/auth/data/data_source/fire_base_auth_data_source.dart';
 import 'package:fruit_hub/features/auth/data/models/user_model.dart';
 import 'package:fruit_hub/features/auth/domain/entities/user_entity.dart';
 import 'package:fruit_hub/features/auth/domain/repo/auth_repo.dart';
@@ -22,59 +22,55 @@ class AuthRepoImpl extends AuthRepo {
     required this.fireBaseAuthServices,
     required this.dataBaseServices,
   });
-
-
+//createUserWidthEmailAndPassword
   @override
-Future<Either<Failures, UserEntity>> createUserWidthEmailAndPassword({
-  required String email,
-  required String password,
-  required String name,
-}) async {
-  User? user; 
-  try {
-    user = await fireBaseAuthServices.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-    var userData = UserModel(email: user.email!, name: name, uid: user.uid);
-    await addUserData(userModel: userData);
-    return right(userData);
-  } on CustomException catch (e) {
-    await deleteUser(user);
-    return left(ServerFailure(message: e.message));
-  } catch (e) {
-    await deleteUser(user);
-    log('Error in creating user with email and password: ${e.toString()}');
-    return left(ServerFailure(
-      message: isArabic()
-          ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-          : 'An error occurred, please try again later',
-    ));
-  }
-}
-
-  Future<void> deleteUser(User? user) async {
-    if (user != null) {
-      await fireBaseAuthServices.deleteUser();
-    }
-  }
-
-  @override
-  Future<Either<Failures, UserEntity>> loginInWithEmailAndPassword(
-      {required String email, required String password}) async {
-          User? user; 
-
+  Future<Either<Failures, UserEntity>> createUserWidthEmailAndPassword({
+    required String email,
+    required String password,
+    required String name,
+  }) async {
+    User? user;
     try {
-       user = await fireBaseAuthServices.signInWithEmailAndPassword(
-          email: email, password: password);
-          var userData = UserModel.fromFirebaseUser(user);
-          await addUserData(userModel: userData);
+      user = await fireBaseAuthServices.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      var userData = UserModel(email: user.email!, name: name, uid: user.uid);
+      await addUserData(userModel: userData);
       return right(userData);
     } on CustomException catch (e) {
       await deleteUser(user);
       return left(ServerFailure(message: e.message));
     } catch (e) {
       await deleteUser(user);
+      log('Error in creating user with email and password: ${e.toString()}');
+      return left(ServerFailure(
+        message: isArabic()
+            ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
+            : 'An error occurred, please try again later',
+      ));
+    }
+  }
+
+//deleteUser
+  Future<void> deleteUser(User? user) async {
+    if (user != null) {
+      await fireBaseAuthServices.deleteUser();
+    }
+  }
+
+//loginInWithEmailAndPassword
+  @override
+  Future<Either<Failures, UserEntity>> loginInWithEmailAndPassword(
+      {required String email, required String password}) async {
+    try {
+      var user = await fireBaseAuthServices.signInWithEmailAndPassword(
+          email: email, password: password);
+      var userData = await getUserData(uid: user.uid);
+      return right(userData);
+    } on CustomException catch (e) {
+      return left(ServerFailure(message: e.message));
+    } catch (e) {
       log('Error in signing in with email and password: ${e.toString()}');
       return left(ServerFailure(
           message: isArabic()
@@ -83,13 +79,21 @@ Future<Either<Failures, UserEntity>> createUserWidthEmailAndPassword({
     }
   }
 
+//loginInWithGoogle
   @override
   Future<Either<Failures, UserEntity>> loginInWithGoogle() async {
     User? user;
     try {
       user = await fireBaseAuthServices.signInWithGoogle();
       var userData = UserModel.fromFirebaseUser(user);
-      await addUserData(userModel: userData);
+      var isUserExist = await dataBaseServices.isDataExist(
+          path: BackEndEndPoints.getUserEndPoint, uid: userData.uid);
+      if (isUserExist) {
+        await getUserData(uid: user.uid);
+      } else {
+        await addUserData(userModel: userData);
+      }
+
       return right(userData);
     } on CustomException catch (e) {
       await deleteUser(user);
@@ -103,42 +107,76 @@ Future<Either<Failures, UserEntity>> createUserWidthEmailAndPassword({
               : 'An error occurred, please try again later'));
     }
   }
-  
-  @override
-  Future<Either<Failures, UserEntity>> loginInWithFacebook() async{
-  try {
-    var user = await fireBaseAuthServices.signInWithFacebook();
-    return right(UserModel.fromFirebaseUser(user));
-  } on CustomException catch (e) {
-    return left(ServerFailure(message: e.message));
-  } catch (e) {
-    log('Error in signing in with facebook: ${e.toString()}');
-    return left(ServerFailure(
-        message: isArabic()
-            ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-            : 'An error occurred, please try again later'));
-  }}
-  
-  @override
-  Future<Either<Failures, UserEntity>> loginInWithApple() async{
-   try {
-    var user = await fireBaseAuthServices.signInWithApple();
-    return right(UserModel.fromFirebaseUser(user));
-  } on CustomException catch (e) {
-    return left(ServerFailure(message: e.message));
-  } catch (e) {
-    log('Error in signing in with apple: ${e.toString()}');
-    return left(ServerFailure(  
-        message: isArabic()
-            ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-            : 'An error occurred, please try again later'));
-  }
-  }
-  
-  @override
-  Future addUserData({required UserModel userModel})async {
 
+//loginInWithFacebook
+  @override
+  Future<Either<Failures, UserEntity>> loginInWithFacebook() async {
+    User? user;
+    try {
+      user = await fireBaseAuthServices.signInWithFacebook();
+      var userData = UserModel.fromFirebaseUser(user);
+            var isUserExist = await dataBaseServices.isDataExist(
+          path: BackEndEndPoints.getUserEndPoint, uid: userData.uid);
+      if (isUserExist) {
+        await getUserData(uid: user.uid);
+      } else {
+        await addUserData(userModel: userData);
+      }
+      return right(userData);
+    } on CustomException catch (e) {
+      await deleteUser(user);
+      return left(ServerFailure(message: e.message));
+    } catch (e) {
+      await deleteUser(user);
+      log('Error in signing in with facebook: ${e.toString()}');
+      return left(ServerFailure(
+          message: isArabic()
+              ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
+              : 'An error occurred, please try again later'));
+    }
+  }
 
-    await dataBaseServices.addData(path: BackEndEndPoints.userEndPoint, data: userModel.toMap());
+//loginInWithApple
+  @override
+  Future<Either<Failures, UserEntity>> loginInWithApple() async {
+    User? user;
+    try {
+      user = await fireBaseAuthServices.signInWithApple();
+      var isUserExist = await dataBaseServices.isDataExist(
+          path: BackEndEndPoints.getUserEndPoint, uid: user.uid);
+      if (isUserExist) {
+        await getUserData(uid: user.uid);
+      } else {
+        await addUserData(userModel: UserModel.fromFirebaseUser(user));
+      }
+      return right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return left(ServerFailure(message: e.message));
+    } catch (e) {
+      log('Error in signing in with apple: ${e.toString()}');
+      return left(ServerFailure(
+          message: isArabic()
+              ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
+              : 'An error occurred, please try again later'));
+    }
+  }
+
+//addUserData
+  @override
+  Future addUserData({
+    required UserModel userModel,
+  }) async {
+    await dataBaseServices.addData(
+        path: BackEndEndPoints.addUserEndPoint,
+        data: userModel.toMap(),
+        uid: userModel.uid);
+  }
+
+//getUserData
+  @override
+  Future<UserEntity> getUserData({required String uid}) async {
+    var data = await dataBaseServices.getData(
+        path: BackEndEndPoints.getUserEndPoint, uid: uid);
+    return UserModel.fromMap(data);
   }
 }
