@@ -1,8 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
+import 'package:fruit_hub/core/utils/app_styles.dart';
+import 'package:fruit_hub/generated/l10n.dart';
+
+import '../../../../../core/utils/color_manger.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -10,16 +11,23 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: SvgPicture.asset(Assets.imagesUserAppBarImagesvg),
-      title: Column(
-        children: [
-          Text(
-           S.of(context).home,
-            style: AppStyles.font20BlackBold,
-          ),
-        ],
+      leading:  Image.asset(Assets.imagesUserAppBar),
+      title: Text(
+       S.of(context).good_morning ,
+        style: AppStyles.font15DustyGrayScaleBold,
       ),
-      trailing: SvgPicture.asset(Assets.imagesNotificationAppBarImagesvg),
+      subtitle:   Text(
+           S.of(context).user_name,
+            style: AppStyles.font16GrayScaleBold,
+          ),
+      trailing: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: const ShapeDecoration(
+          shape: OvalBorder(),
+          color: Color(0xffEEF8ED),
+        ),
+        child: Image.asset(Assets.imagesNotification),
+      ),
     );
   }
 }

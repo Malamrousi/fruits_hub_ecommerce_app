@@ -729,6 +729,15 @@ class S {
       args: [],
     );
   }
+
+  String get user_name {
+    return Intl.message(
+      'Ahmed Mostafa',
+      name: 'user_name',
+      desc: 'The user full name', // Added description for clarity
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -114,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "terms_text_start": MessageLookupByLibrary.simpleMessage(
             "By creating an account, you agree to"),
         "terms_text_terms": MessageLookupByLibrary.simpleMessage("Terms"),
+        "user_full_name": MessageLookupByLibrary.simpleMessage("أحمد مصطفي"),
         "verify_button": MessageLookupByLibrary.simpleMessage("Verify Code"),
         "verify_desc":
             MessageLookupByLibrary.simpleMessage("Enter the code sent to"),
