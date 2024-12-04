@@ -48,7 +48,7 @@ class _TermAndConditionState extends State<TermAndCondition> {
                 ),
                 TextSpan(
                   text: S.of(context).terms_text_terms,
-                  style: AppStyles.font13sLightPrimaryColorBold,
+                  style: AppStyles.font13LightPrimaryColorBold,
                   recognizer: TapGestureRecognizer()..onTap = () {},
                 ),
                 TextSpan(
@@ -57,7 +57,7 @@ class _TermAndConditionState extends State<TermAndCondition> {
                 ),
                 TextSpan(
                   text: S.of(context).terms_text_end,
-                  style: AppStyles.font13sLightPrimaryColorBold,
+                  style: AppStyles.font13LightPrimaryColorBold,
                 ),
               ],
             ),

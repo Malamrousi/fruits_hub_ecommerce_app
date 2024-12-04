@@ -18,7 +18,7 @@ class UserHaveAccountOrNot extends StatelessWidget {
         children: <TextSpan>[
           
           TextSpan(
-            style: AppStyles.font15sPrimaryColorBold,
+            style: AppStyles.font15PrimaryColorBold,
             text: account2,
             recognizer: TapGestureRecognizer()..onTap = onTap,
           ),

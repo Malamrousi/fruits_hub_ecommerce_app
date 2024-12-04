@@ -49,14 +49,26 @@ class AppStyles {
     fontWeight: FontWeightManger.bold,
     color: ColorManger.dustyGray,
   );
-  static TextStyle font13sLightPrimaryColorBold = const TextStyle(
+  static TextStyle font13LightPrimaryColorBold = const TextStyle(
     fontSize: 13,
     fontWeight: FontWeightManger.semiBold,
     color: ColorManger.lightPrimaryColor,
   );
-    static TextStyle font15sPrimaryColorBold = const TextStyle(
+    static TextStyle font15PrimaryColorBold = const TextStyle(
     fontSize: 15,
     fontWeight: FontWeightManger.semiBold,
     color: ColorManger.primaryColor,
+  );
+
+      static TextStyle font19WhiteColorBold = const TextStyle(
+    fontSize: 19,
+    fontWeight: FontWeightManger.bold,
+    color: ColorManger.whiteColor,
+  );
+
+        static TextStyle font13WhiteColorRegular = const TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightManger.regular,
+    color: ColorManger.whiteColor,
   );
 }

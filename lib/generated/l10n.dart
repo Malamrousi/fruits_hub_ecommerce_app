@@ -730,11 +730,12 @@ class S {
     );
   }
 
-  String get user_name {
+  /// `أحمد مصطفي`
+  String get user_full_name {
     return Intl.message(
-      'Ahmed Mostafa',
-      name: 'user_name',
-      desc: 'The user full name', // Added description for clarity
+      'Ahamed Mostafa',
+      name: 'user_full_name',
+      desc: '',
       args: [],
     );
   }

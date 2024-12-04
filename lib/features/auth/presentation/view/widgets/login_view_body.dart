@@ -41,7 +41,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 onPressed: () {},
                 child: Text(
                   S.of(context).forgot_password,
-                  style: AppStyles.font13sLightPrimaryColorBold,
+                  style: AppStyles.font13LightPrimaryColorBold,
                 ),
               ),
             ),

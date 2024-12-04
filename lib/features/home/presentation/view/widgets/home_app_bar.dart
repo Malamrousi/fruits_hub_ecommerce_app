@@ -10,13 +10,14 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.zero,
       leading:  Image.asset(Assets.imagesUserAppBar),
       title: Text(
        S.of(context).good_morning ,
         style: AppStyles.font15DustyGrayScaleBold,
       ),
       subtitle:   Text(
-           S.of(context).user_name,
+           S.of(context).user_full_name,
             style: AppStyles.font16GrayScaleBold,
           ),
       trailing: Container(

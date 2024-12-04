@@ -55,7 +55,7 @@ class CustomTextFormFiled extends StatelessWidget {
           focusedErrorBorder: errorBorder(),
           hintText: hintText,
           hintStyle: hintStyle ?? AppStyles.font15DustyGrayScaleBold),
-          style: AppStyles.font13sLightPrimaryColorBold,
+          style: AppStyles.font13LightPrimaryColorBold,
     );
   }
 
