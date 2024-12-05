@@ -10,6 +10,38 @@ class Assets {
   /// assets/images/apple.svg
   static const String imagesApple = "assets/images/apple.svg";
 
+  /// Assets for imagesBottomBarIconBoldHome
+  /// assets/images/bottom_bar_icon/bold/home.svg
+  static const String imagesBottomBarIconBoldHome = "assets/images/bottom_bar_icon/bold/home.svg";
+
+  /// Assets for imagesBottomBarIconBoldProducts
+  /// assets/images/bottom_bar_icon/bold/products.svg
+  static const String imagesBottomBarIconBoldProducts = "assets/images/bottom_bar_icon/bold/products.svg";
+
+  /// Assets for imagesBottomBarIconBoldShoppingCart
+  /// assets/images/bottom_bar_icon/bold/shopping-cart.svg
+  static const String imagesBottomBarIconBoldShoppingCart = "assets/images/bottom_bar_icon/bold/shopping-cart.svg";
+
+  /// Assets for imagesBottomBarIconBoldUser
+  /// assets/images/bottom_bar_icon/bold/user.svg
+  static const String imagesBottomBarIconBoldUser = "assets/images/bottom_bar_icon/bold/user.svg";
+
+  /// Assets for imagesBottomBarIconOutlineHome
+  /// assets/images/bottom_bar_icon/outline/home.svg
+  static const String imagesBottomBarIconOutlineHome = "assets/images/bottom_bar_icon/outline/home.svg";
+
+  /// Assets for imagesBottomBarIconOutlineProducts
+  /// assets/images/bottom_bar_icon/outline/products.svg
+  static const String imagesBottomBarIconOutlineProducts = "assets/images/bottom_bar_icon/outline/products.svg";
+
+  /// Assets for imagesBottomBarIconOutlineShoppingCart
+  /// assets/images/bottom_bar_icon/outline/shopping-cart.svg
+  static const String imagesBottomBarIconOutlineShoppingCart = "assets/images/bottom_bar_icon/outline/shopping-cart.svg";
+
+  /// Assets for imagesBottomBarIconOutlineUser
+  /// assets/images/bottom_bar_icon/outline/user.svg
+  static const String imagesBottomBarIconOutlineUser = "assets/images/bottom_bar_icon/outline/user.svg";
+
   /// Assets for imagesCheck
   /// assets/images/check.svg
   static const String imagesCheck = "assets/images/check.svg";
@@ -53,6 +85,10 @@ class Assets {
   /// Assets for imagesObBoardingShape2
   /// assets/images/ob_boarding_shape2.svg
   static const String imagesObBoardingShape2 = "assets/images/ob_boarding_shape2.svg";
+
+  /// Assets for imagesPineapple
+  /// assets/images/pineapple.png
+  static const String imagesPineapple = "assets/images/pineapple.png";
 
   /// Assets for imagesPlant
   /// assets/images/plant.svg

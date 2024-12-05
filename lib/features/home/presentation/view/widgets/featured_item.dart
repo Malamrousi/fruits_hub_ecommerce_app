@@ -71,3 +71,4 @@ class FeaturedItem extends StatelessWidget {
     );
   }
 }
+

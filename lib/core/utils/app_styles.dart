@@ -19,6 +19,11 @@ class AppStyles {
     fontWeight: FontWeightManger.bold,
     color: ColorManger.primaryColor,
   );
+    static TextStyle font11sPrimaryColorSemiBold = const TextStyle(
+    fontSize: 11,
+    fontWeight: FontWeightManger.semiBold,
+    color: ColorManger.primaryColor,
+  );
   static TextStyle font23GoldenBold = const TextStyle(
     fontSize: 23,
     fontWeight: FontWeightManger.bold,
@@ -70,5 +75,16 @@ class AppStyles {
     fontSize: 13,
     fontWeight: FontWeightManger.regular,
     color: ColorManger.whiteColor,
+  );
+          static TextStyle font13GoldenColorSemiBold = const TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightManger.semiBold,
+    color: ColorManger.goldenColor,
+  );
+
+            static TextStyle font13GoldenColorBold = const TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightManger.bold,
+    color: ColorManger.goldenColor,
   );
 }

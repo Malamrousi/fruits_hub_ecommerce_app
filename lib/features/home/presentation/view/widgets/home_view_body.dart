@@ -5,6 +5,9 @@ import 'package:fruit_hub/core/widgets/search_text_filed.dart';
 import 'package:fruit_hub/features/home/presentation/view/widgets/feature_list.dart';
 import 'package:fruit_hub/features/home/presentation/view/widgets/home_app_bar.dart';
 
+import 'best_seller_header.dart';
+import 'best_selling_grid_view.dart';
+
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
 
@@ -28,9 +31,14 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 const SearchTextField(),
                 verticalSpacing(12),
                 const FeatureList(),
+                verticalSpacing(12),
+                const BestSellerHeader(),
+                verticalSpacing(8),
+        
               ],
             ),
           ),
+              const    BestSellingGridView(),
         ],
       ),
     );

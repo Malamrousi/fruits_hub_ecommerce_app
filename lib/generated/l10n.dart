@@ -733,7 +733,7 @@ class S {
   /// `أحمد مصطفي`
   String get user_full_name {
     return Intl.message(
-      'Ahamed Mostafa',
+      'أحمد مصطفي',
       name: 'user_full_name',
       desc: '',
       args: [],
