@@ -16,7 +16,7 @@ void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
       bool isOnBoardingSeen =
-      SharedPreferencesService().getBool(isOnBoardingSeenView);
+      SharedPreferencesService.getBool(isOnBoardingSeenView);
     await tester.pumpWidget( FruitsHub(
       isOnBoardingSeen: isOnBoardingSeen,
     ));

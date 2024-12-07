@@ -20,9 +20,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+
   
   await SharedPreferencesService.init();
-  bool isOnBoardingSeen = SharedPreferencesService().getBool(isOnBoardingSeenView);
+  bool isOnBoardingSeen = SharedPreferencesService.getBool(isOnBoardingSeenView);
   setUpGetIt();
   Bloc.observer = SimpleBlocObserver();
   

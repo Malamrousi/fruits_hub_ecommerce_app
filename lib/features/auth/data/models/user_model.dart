@@ -30,4 +30,12 @@ class UserModel extends UserEntity {
       'uid': uid,
     };
   }
+
+  factory UserModel.fromEntity(UserEntity userEntity) {
+    return UserModel(
+      email: userEntity.email,
+      name: userEntity.name,
+      uid: userEntity.uid,
+    );
+  } 
 }

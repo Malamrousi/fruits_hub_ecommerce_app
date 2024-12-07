@@ -1,65 +1,28 @@
 import 'package:shared_preferences/shared_preferences.dart';
 class SharedPreferencesService {
-  static final SharedPreferencesService _instance =
-      SharedPreferencesService._internal();
+  static late SharedPreferences _instance;
 
-  factory SharedPreferencesService() {
-    return _instance;
+  static Future<void> init() async {
+    _instance = await SharedPreferences.getInstance();
   }
 
-  SharedPreferencesService._internal();
-
-  static late SharedPreferences _prefs;
-
- static Future<void> init() async {
-    _prefs = await SharedPreferences.getInstance();
+  static setBool(String key, bool value) {
+    _instance.setBool(key, value);
   }
 
-  String? getString(String key) {
-    return _prefs.getString(key);
+  static getBool(String key) {
+    return _instance.getBool(key) ?? false;
   }
 
-  void setString(String key, String value) {
-    _prefs.setString(key, value);
+  static setString(String key, String value) async {
+    await _instance.setString(key, value);
   }
 
-  bool getBool(String key) {
-    return _prefs.getBool(key) ?? false;
+  static getString(String key) {
+    return _instance.getString(key) ?? "";
   }
 
-  void setBool(String key, bool value) {
-    _prefs.setBool(key, value);
-  }
-
-  int? getInt(String key) {
-    return _prefs.getInt(key);
-  }
-
-  void setInt(String key, int value) {
-    _prefs.setInt(key, value);
-  }
-
-  double? getDouble(String key) {
-    return _prefs.getDouble(key);
-  }
-
-  void setDouble(String key, double value) {
-    _prefs.setDouble(key, value);
-  }
-
-  List<String>? getStringList(String key) {
-    return _prefs.getStringList(key);
-  }
-
-  void setStringList(String key, List<String> value) {
-    _prefs.setStringList(key, value);
-  }
-
-  Future<bool> remove(String key) {
-    return _prefs.remove(key);
-  }
-
-  Future<bool> clear() {
-    return _prefs.clear();
+  static remove(String key) {
+    _instance.remove(key);
   }
 }

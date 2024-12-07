@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:fruit_hub/constant.dart';
 import 'package:fruit_hub/core/helper/spacing.dart';
 import 'package:fruit_hub/core/widgets/search_text_filed.dart';

@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -8,11 +9,14 @@ import 'package:fruit_hub/core/errors/exception.dart';
 import 'package:fruit_hub/core/errors/failures.dart';
 import 'package:fruit_hub/core/func/is_arabic.dart';
 import 'package:fruit_hub/core/services/data_base_services.dart';
+import 'package:fruit_hub/core/services/shared_preferences.dart';
 import 'package:fruit_hub/features/auth/data/data_source/fire_base_auth_data_source.dart';
 import 'package:fruit_hub/features/auth/data/models/user_model.dart';
 import 'package:fruit_hub/features/auth/domain/entities/user_entity.dart';
 import 'package:fruit_hub/features/auth/domain/repo/auth_repo.dart';
 import 'package:fruit_hub/core/utils/back_end_end_points.dart';
+
+import '../../../../constant.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final FireBaseAuthServices fireBaseAuthServices;
@@ -36,7 +40,8 @@ class AuthRepoImpl extends AuthRepo {
         password: password,
       );
       var userData = UserModel(email: user.email!, name: name, uid: user.uid);
-      await addUserData(userModel: userData);
+      await addUserData(userEntity: userData);
+      await saveUserData(user: userData);
       return right(userData);
     } on CustomException catch (e) {
       await deleteUser(user);
@@ -67,6 +72,7 @@ class AuthRepoImpl extends AuthRepo {
       var user = await fireBaseAuthServices.signInWithEmailAndPassword(
           email: email, password: password);
       var userData = await getUserData(uid: user.uid);
+
       return right(userData);
     } on CustomException catch (e) {
       return left(ServerFailure(message: e.message));
@@ -91,9 +97,9 @@ class AuthRepoImpl extends AuthRepo {
       if (isUserExist) {
         await getUserData(uid: user.uid);
       } else {
-        await addUserData(userModel: userData);
+        await addUserData(userEntity: userData);
+        await saveUserData(user: userData);
       }
-
       return right(userData);
     } on CustomException catch (e) {
       await deleteUser(user);
@@ -115,12 +121,13 @@ class AuthRepoImpl extends AuthRepo {
     try {
       user = await fireBaseAuthServices.signInWithFacebook();
       var userData = UserModel.fromFirebaseUser(user);
-            var isUserExist = await dataBaseServices.isDataExist(
+      var isUserExist = await dataBaseServices.isDataExist(
           path: BackEndEndPoints.getUserEndPoint, uid: userData.uid);
       if (isUserExist) {
         await getUserData(uid: user.uid);
       } else {
-        await addUserData(userModel: userData);
+        await addUserData(userEntity: userData);
+        await saveUserData(user: userData);
       }
       return right(userData);
     } on CustomException catch (e) {
@@ -147,8 +154,9 @@ class AuthRepoImpl extends AuthRepo {
       if (isUserExist) {
         await getUserData(uid: user.uid);
       } else {
-        await addUserData(userModel: UserModel.fromFirebaseUser(user));
+        await addUserData(userEntity: UserModel.fromFirebaseUser(user));
       }
+   
       return right(UserModel.fromFirebaseUser(user));
     } on CustomException catch (e) {
       return left(ServerFailure(message: e.message));
@@ -164,12 +172,13 @@ class AuthRepoImpl extends AuthRepo {
 //addUserData
   @override
   Future addUserData({
-    required UserModel userModel,
+    required UserEntity userEntity,
   }) async {
     await dataBaseServices.addData(
         path: BackEndEndPoints.addUserEndPoint,
-        data: userModel.toMap(),
-        uid: userModel.uid);
+        data: UserModel.fromEntity(userEntity).toMap(),
+        uid: userEntity.uid
+        );
   }
 
 //getUserData
@@ -178,5 +187,11 @@ class AuthRepoImpl extends AuthRepo {
     var data = await dataBaseServices.getData(
         path: BackEndEndPoints.getUserEndPoint, uid: uid);
     return UserModel.fromMap(data);
+  }
+  
+  @override
+  Future saveUserData({required UserEntity user}) async {
+    var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
+    await SharedPreferencesService.setString(kSaveUserData, jsonData);
   }
 }

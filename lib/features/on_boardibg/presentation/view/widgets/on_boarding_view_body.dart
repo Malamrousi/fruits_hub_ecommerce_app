@@ -66,7 +66,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
             child: CustomButton(
               onPressed: () {
-                SharedPreferencesService().setBool(isOnBoardingSeenView, true);
+                SharedPreferencesService.setBool(isOnBoardingSeenView, true);
                 context.pushReplacementNamed(RouteName.login);
               },
               bottomHeight: 54,
