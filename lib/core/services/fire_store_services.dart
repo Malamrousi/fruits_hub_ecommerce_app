@@ -22,7 +22,7 @@ class FireStoreServices implements DataBaseServices {
     if (uid != null) {
       return (await _firestore.collection(path).doc(uid).get()).data()!;
     } else {
-      Query<Map<String, dynamic>> data = await _firestore.collection(path);
+      Query<Map<String, dynamic>> data =  _firestore.collection(path);
       if (query != null) {
         if (query['orderBy'] != null) {
           var orderBy = query['orderBy'];
