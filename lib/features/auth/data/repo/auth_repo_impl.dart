@@ -39,9 +39,9 @@ class AuthRepoImpl extends AuthRepo {
         email: email,
         password: password,
       );
-      var userData = UserModel(email: user.email!, name: name, uid: user.uid);
+      var userData = UserEntity(email: user.email!, name: name, uid: user.uid);
       await addUserData(userEntity: userData);
-      await saveUserData(user: userData);
+    
       return right(userData);
     } on CustomException catch (e) {
       await deleteUser(user);
@@ -72,7 +72,7 @@ class AuthRepoImpl extends AuthRepo {
       var user = await fireBaseAuthServices.signInWithEmailAndPassword(
           email: email, password: password);
       var userData = await getUserData(uid: user.uid);
-
+   await saveUserData(user: userData);
       return right(userData);
     } on CustomException catch (e) {
       return left(ServerFailure(message: e.message));
