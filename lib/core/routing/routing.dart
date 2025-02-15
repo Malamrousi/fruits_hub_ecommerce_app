@@ -28,7 +28,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
     case RouteName.home:
       return MaterialPageRoute(
-        builder: (_) => const HomeView(),
+        builder: (_) => const MainView(),
       );
           case RouteName.bestSelling:
       return MaterialPageRoute(

@@ -1,3 +1,6 @@
+import 'package:fruit_hub/core/cubits/product/product_cubit.dart';
+import 'package:fruit_hub/core/repo/product_repo/product_repo.dart';
+import 'package:fruit_hub/core/repo/product_repo/product_repo_impl.dart';
 import 'package:fruit_hub/core/services/data_base_services.dart';
 import 'package:fruit_hub/core/services/fire_store_services.dart';
 import 'package:fruit_hub/features/auth/data/data_source/fire_base_auth_data_source.dart';
@@ -20,4 +23,8 @@ void setUpGetIt() {
 
   getIT.registerSingleton<SignupCubit>(SignupCubit(getIT.get<AuthRepo>()));
   getIT.registerSingleton<LoginCubit>(LoginCubit(getIT.get<AuthRepo>()));
+  getIT.registerSingleton<ProductRepoImpl>(ProductRepoImpl(dataBaseServices:  getIT.get<DataBaseServices>()));
+    getIT.registerSingleton<ProductRepo>(getIT.get<ProductRepoImpl>());
+    getIT.registerSingleton<ProductCubit>( ProductCubit( getIT.get<ProductRepo>()));
+
 }
