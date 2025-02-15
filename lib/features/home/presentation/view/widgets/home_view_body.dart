@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/constant.dart';
@@ -23,10 +22,10 @@ class HomeViewBody extends StatefulWidget {
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     context.read<ProductCubit>().getBestSellingProduct();
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -45,11 +44,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 verticalSpacing(12),
                 const BestSellerHeader(),
                 verticalSpacing(8),
-        
               ],
             ),
           ),
-              const    BestSellingGridView(),
+          const BestSellingGridView(),
         ],
       ),
     );

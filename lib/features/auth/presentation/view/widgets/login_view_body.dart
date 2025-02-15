@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruit_hub/core/func/is_arabic.dart';
 import 'package:fruit_hub/core/helper/extension.dart';
 import 'package:fruit_hub/core/helper/spacing.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
@@ -11,7 +10,6 @@ import '../../../../../constant.dart';
 import '../../../../../core/routing/route_name.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../../generated/l10n.dart';
 import '../../cubits/cubit/login_cubit.dart';
 import 'dont_have_an_account.dart';
 import 'login_form.dart';
@@ -36,11 +34,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             verticalSpacing(16),
             Align(
               alignment:
-                  isArabic() ? Alignment.centerLeft : Alignment.centerRight,
+           Alignment.centerLeft ,
               child: TextButton(
                 onPressed: () {},
                 child: Text(
-                  S.of(context).forgot_password,
+                 "نسيت كلمة المرور",
                   style: AppStyles.font13LightPrimaryColorBold,
                 ),
               ),
@@ -56,13 +54,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   context.read<LoginCubit>().loginUserWidthEmailAndPassword();
                 }
               },
-              title: S.of(context).login,
+              title: "تسجيل الدخول", 
               textStyle: AppStyles.font16WhiteBold,
             ),
             verticalSpacing(33),
             UserHaveAccountOrNot(
-              account: S.of(context).dont_have_account,
-              account2: S.of(context).signup,
+              account: "ليس لديك حساب؟",
+              account2: "تسجيل حساب جديد",
               onTap: () {
                 context.pushNamed(RouteName.signUp);
               },
@@ -74,7 +72,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               onPressed: () {
                 context.read<LoginCubit>().loginWithGoogle();
               },
-              buttonText: S.of(context).login_google,
+              buttonText: "تسجيل الدخول بواسطة جوجل",
               socialImage: Assets.imagesGoogle,
             ),
             verticalSpacing(16),
@@ -82,14 +80,14 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 onPressed: () {
                   context.read<LoginCubit>().loginWithFacebook();
                 },
-                buttonText: S.of(context).login_facebook,
+                buttonText: "تسجيل الدخول بواسطة فيسبوك",
                 socialImage: Assets.imagesFacebooksvg),
             verticalSpacing(16),
             CustomSocialAuth(
                 onPressed: () {
                   context.read<LoginCubit>().loginWithApple();
                 },
-                buttonText: S.of(context).login_apple,
+                buttonText: "تسجيل الدخول بواسطة ابل",
                 socialImage: Assets.imagesApple),
           ],
         ),

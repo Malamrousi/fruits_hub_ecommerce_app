@@ -4,7 +4,6 @@ import 'package:fruit_hub/core/helper/spacing.dart';
 import 'package:fruit_hub/core/widgets/custom_password_filed.dart';
 import 'package:fruit_hub/core/widgets/custom_text_form_filed.dart';
 import 'package:fruit_hub/features/auth/presentation/cubits/cubit/login_cubit.dart';
-import 'package:fruit_hub/generated/l10n.dart';
 
 import '../../../../../core/helper/app_regx.dart';
 
@@ -21,13 +20,13 @@ class LoginForm extends StatelessWidget {
             obscureText: false,
             controller: context.read<LoginCubit>().emailController,
             keyboardType: TextInputType.emailAddress,
-            hintText: S.of(context).email_hint,
+            hintText: "البريد الالكتروني",
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return S.of(context).email_empty;
+                return "البريد الالكتروني مطلوب";
               }
               if (!AppRegex.isEmailValid(value)) {
-                return S.of(context).email_invalid;
+                return "البريد الالكتروني غير صحيح";
               }
               return null;
             },

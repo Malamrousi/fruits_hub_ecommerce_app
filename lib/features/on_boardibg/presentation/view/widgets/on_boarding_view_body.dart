@@ -8,7 +8,6 @@ import '../../../../../core/helper/spacing.dart';
 import '../../../../../core/routing/route_name.dart';
 import '../../../../../core/services/shared_preferences.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../../generated/l10n.dart';
 import 'on_boarding_page_view.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
@@ -70,7 +69,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 context.pushReplacementNamed(RouteName.login);
               },
               bottomHeight: 54,
-              title: S.of(context).start_now,
+              title: "ابدأ الان",
               textStyle: AppStyles.font16WhiteBold,
               borderRadius: kBorderRadius,
             ),

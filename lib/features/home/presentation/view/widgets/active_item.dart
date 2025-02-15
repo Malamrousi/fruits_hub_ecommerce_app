@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruit_hub/core/func/is_arabic.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
 
 class ActiveItem extends StatelessWidget {
@@ -11,8 +10,7 @@ class ActiveItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: EdgeInsets.only(
-            left: isArabic() ? 16 : 0, right: isArabic() ? 0 : 16),
+        padding: const EdgeInsets.only(left: 16),
         decoration: ShapeDecoration(
           color: const Color(0xFFEEEEEE),
           shape: RoundedRectangleBorder(

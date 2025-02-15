@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../../../core/helper/spacing.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/color_manger.dart';
-import '../../../../../generated/l10n.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({super.key});
@@ -19,7 +18,7 @@ class CustomDivider extends StatelessWidget {
       ),
       horizontalSpacing(12),
       Text(
-        S.of(context).or,
+       "او",
         style: AppStyles.font16GrayScaleBold,
       ),
       horizontalSpacing(12),

@@ -3,7 +3,6 @@ import 'package:fruit_hub/core/func/get_user.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
 import 'package:fruit_hub/core/widgets/notification_widget.dart';
-import 'package:fruit_hub/generated/l10n.dart';
 
 
 class HomeAppBar extends StatelessWidget {
@@ -16,7 +15,7 @@ class HomeAppBar extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       leading: Image.asset(Assets.imagesUserAppBar),
       title: Text(
-        S.of(context).good_morning,
+       "صباح الخير " ,
         style: AppStyles.font15DustyGrayScaleBold,
       ),
       subtitle: Text(

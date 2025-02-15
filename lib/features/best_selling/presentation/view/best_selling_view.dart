@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/constant.dart';
-import 'package:fruit_hub/core/func/is_arabic.dart';
 
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/notification_widget.dart';
@@ -25,7 +24,7 @@ class BestSellingView extends StatelessWidget {
           },
         ),
         title: Text(
-          isArabic() ? "الاكثر مبيعا " : "Best seller",
+    "الاكثر مبيعا " ,
           style: AppStyles.font16GrayScaleBold,
         ),
         actions: const [

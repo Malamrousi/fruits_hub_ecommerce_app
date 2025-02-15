@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
 
-import '../../generated/l10n.dart';
 import '../utils/app_styles.dart';
 import '../utils/color_manger.dart';
 
@@ -46,7 +45,7 @@ class SearchTextField extends StatelessWidget {
             enabledBorder: inputBorder(),
             errorBorder: errorBorder(),
             focusedErrorBorder: errorBorder(),
-            hintText: S.of(context).search_for,
+            hintText: "ابحث عن المواد الغذائية",
             hintStyle: AppStyles.font13stoneGraySemiBold),
         style: AppStyles.font16GrayScaleBold,
       ),

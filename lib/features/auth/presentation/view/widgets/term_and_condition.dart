@@ -1,9 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
 
 import '../../../../../core/helper/spacing.dart';
-import '../../../../../generated/l10n.dart';
 import 'custom_check_box.dart';
 
 class TermAndCondition extends StatefulWidget {
@@ -39,24 +37,16 @@ class _TermAndConditionState extends State<TermAndCondition> {
             TextSpan(
               children: [
                 TextSpan(
-                  text: S.of(context).terms_text_start,
+                  text:"من خلال إنشاء حساب ، فإنك توافق على",
                   style: AppStyles.font13stoneGraySemiBold,
                 ),
-                TextSpan(
-                  text: '  ',
-                  style: AppStyles.font13stoneGraySemiBold,
-                ),
-                TextSpan(
-                  text: S.of(context).terms_text_terms,
-                  style: AppStyles.font13LightPrimaryColorBold,
-                  recognizer: TapGestureRecognizer()..onTap = () {},
-                ),
+            
                 TextSpan(
                   text: ' ',
                   style: AppStyles.font13stoneGraySemiBold,
                 ),
                 TextSpan(
-                  text: S.of(context).terms_text_end,
+                  text: " الشروط والأحكام الخاصة بنا ",
                   style: AppStyles.font13LightPrimaryColorBold,
                 ),
               ],

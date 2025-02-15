@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/constant.dart';
-import 'package:fruit_hub/core/func/is_arabic.dart';
 import 'package:fruit_hub/core/helper/extension.dart';
 import 'package:fruit_hub/features/auth/presentation/view/widgets/dont_have_an_account.dart';
-import 'package:fruit_hub/generated/l10n.dart';
 
 import '../../../../../core/func/build_error_app_bar.dart';
 import '../../../../../core/helper/spacing.dart';
@@ -47,20 +45,17 @@ class SignUpViewBody extends StatelessWidget {
                 } else {
                   buildErrorBar(
                       context,
-                      isArabic()
-                          ? 'الرجاء الموافقة على الشروط والاحكام'
-                          : 'Please accept the terms and conditions');
+                  "يرجى التاكد من انك قد قرأت الشروط والاحكام");
                 }
               },
-              title: S.of(context).create_account,
+              title: "انشاء حساب",
               textStyle: AppStyles.font16WhiteBold,
             ),
             verticalSpacing(33),
             UserHaveAccountOrNot(
-              account: isArabic()
-                  ? 'تمتلك حساب بالفعل؟ '
-                  : 'Already have an account?',
-              account2: S.of(context).login,
+              account:
+                   'تمتلك حساب بالفعل؟ ',
+              account2:"تسجيل الدخول",
               onTap: () {
                 context.pushNamed(RouteName.login);
               },

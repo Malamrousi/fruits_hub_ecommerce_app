@@ -7,7 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:fruit_hub/core/errors/exception.dart';
 import 'package:fruit_hub/core/errors/failures.dart';
-import 'package:fruit_hub/core/func/is_arabic.dart';
 import 'package:fruit_hub/core/services/data_base_services.dart';
 import 'package:fruit_hub/core/services/shared_preferences.dart';
 import 'package:fruit_hub/features/auth/data/data_source/fire_base_auth_data_source.dart';
@@ -41,7 +40,7 @@ class AuthRepoImpl extends AuthRepo {
       );
       var userData = UserEntity(email: user.email!, name: name, uid: user.uid);
       await addUserData(userEntity: userData);
-    
+
       return right(userData);
     } on CustomException catch (e) {
       await deleteUser(user);
@@ -49,11 +48,7 @@ class AuthRepoImpl extends AuthRepo {
     } catch (e) {
       await deleteUser(user);
       log('Error in creating user with email and password: ${e.toString()}');
-      return left(ServerFailure(
-        message: isArabic()
-            ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-            : 'An error occurred, please try again later',
-      ));
+      return left(ServerFailure(message: 'حدث خطأ ، يرجى المحاولة مرة أخرى'));
     }
   }
 
@@ -72,16 +67,13 @@ class AuthRepoImpl extends AuthRepo {
       var user = await fireBaseAuthServices.signInWithEmailAndPassword(
           email: email, password: password);
       var userData = await getUserData(uid: user.uid);
-   await saveUserData(user: userData);
+      await saveUserData(user: userData);
       return right(userData);
     } on CustomException catch (e) {
       return left(ServerFailure(message: e.message));
     } catch (e) {
       log('Error in signing in with email and password: ${e.toString()}');
-      return left(ServerFailure(
-          message: isArabic()
-              ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-              : 'An error occurred, please try again later'));
+      return left(ServerFailure(message: 'حدث خطأ ، يرجى المحاولة مرة أخرى'));
     }
   }
 
@@ -107,10 +99,7 @@ class AuthRepoImpl extends AuthRepo {
     } catch (e) {
       await deleteUser(user);
       log('Error in signing in with google: ${e.toString()}');
-      return left(ServerFailure(
-          message: isArabic()
-              ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-              : 'An error occurred, please try again later'));
+      return left(ServerFailure(message: 'حدث خطأ ، يرجى المحاولة مرة أخرى'));
     }
   }
 
@@ -136,10 +125,7 @@ class AuthRepoImpl extends AuthRepo {
     } catch (e) {
       await deleteUser(user);
       log('Error in signing in with facebook: ${e.toString()}');
-      return left(ServerFailure(
-          message: isArabic()
-              ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-              : 'An error occurred, please try again later'));
+      return left(ServerFailure(message: 'حدث خطأ ، يرجى المحاولة مرة أخرى'));
     }
   }
 
@@ -156,16 +142,13 @@ class AuthRepoImpl extends AuthRepo {
       } else {
         await addUserData(userEntity: UserModel.fromFirebaseUser(user));
       }
-   
+
       return right(UserModel.fromFirebaseUser(user));
     } on CustomException catch (e) {
       return left(ServerFailure(message: e.message));
     } catch (e) {
       log('Error in signing in with apple: ${e.toString()}');
-      return left(ServerFailure(
-          message: isArabic()
-              ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-              : 'An error occurred, please try again later'));
+      return left(ServerFailure(message: 'حدث خطأ ، يرجى المحاولة مرة أخرى'));
     }
   }
 
@@ -177,8 +160,7 @@ class AuthRepoImpl extends AuthRepo {
     await dataBaseServices.addData(
         path: BackEndEndPoints.addUserEndPoint,
         data: UserModel.fromEntity(userEntity).toMap(),
-        uid: userEntity.uid
-        );
+        uid: userEntity.uid);
   }
 
 //getUserData
@@ -188,7 +170,7 @@ class AuthRepoImpl extends AuthRepo {
         path: BackEndEndPoints.getUserEndPoint, uid: uid);
     return UserModel.fromMap(data);
   }
-  
+
   @override
   Future saveUserData({required UserEntity user}) async {
     var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());

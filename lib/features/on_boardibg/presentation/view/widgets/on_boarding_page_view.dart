@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
-import 'package:fruit_hub/generated/l10n.dart';
 import 'page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
@@ -18,21 +17,21 @@ class OnBoardingPageView extends StatelessWidget {
           isVisible: true,
           backgroundImage: Assets.imagesObBoardingShape1,
           image: Assets.imagesFruitBasket1,
-          description: S.of(context).splash_description,
+          description: "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.",
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                S.of(context).welcome_hello,
+               "مرحبًا بك في",
                 style: AppStyles.font23BlackBold,
               ),
               const SizedBox(width: 4),
               Text(
-                S.of(context).welcome_hub,
+               "Fruit",
                 style: AppStyles.font23GoldenBold,
               ),
               Text(
-                S.of(context).welcome_fruit,
+               "HUB",
                 style: AppStyles.font23sPrimaryColorBold,
               ),
             ],
@@ -42,10 +41,10 @@ class OnBoardingPageView extends StatelessWidget {
           isVisible: false,
           backgroundImage: Assets.imagesObBoardingShape2,
           image: Assets.imagesFruitBasket2,
-          description: S.of(context).search_description,
+          description: "نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية",
           title: Center(
             child: Text(
-              S.of(context).search_shop,
+              "ابحث وتسوق",
               style: AppStyles.font23BlackBold,
             ),
           ),

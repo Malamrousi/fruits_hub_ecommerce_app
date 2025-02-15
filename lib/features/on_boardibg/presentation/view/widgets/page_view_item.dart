@@ -7,7 +7,6 @@ import 'package:fruit_hub/core/services/shared_preferences.dart';
 
 import '../../../../../core/helper/spacing.dart';
 import '../../../../../core/utils/app_styles.dart';
-import '../../../../../generated/l10n.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem(
@@ -55,7 +54,7 @@ class PageViewItem extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Text(
-                      S.of(context).skip,
+                      "Skip",
                       style: AppStyles.font13stoneGraySemiBold,
                     ),
                   ),

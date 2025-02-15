@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
 import 'package:fruit_hub/core/utils/color_manger.dart';
-import 'package:fruit_hub/generated/l10n.dart';
 
 class FeatureItemButton extends StatelessWidget {
   const FeatureItemButton({super.key});
@@ -25,7 +24,7 @@ class FeatureItemButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Text(
-          S.of(context).shop_now,
+          "تسوق الان",
           style: AppStyles.font13LightPrimaryColorBold,
         ),
       ),

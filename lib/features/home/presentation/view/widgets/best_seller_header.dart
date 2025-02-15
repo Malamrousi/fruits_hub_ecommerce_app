@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/core/func/is_arabic.dart';
 import 'package:fruit_hub/core/helper/extension.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
 
@@ -14,7 +13,7 @@ class BestSellerHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          isArabic() ? "الاكثر مبيعا " : "Best seller",
+         "الاكثر مبيعا " ,
           style: AppStyles.font16GrayScaleBold,
         ),
         InkWell(
@@ -23,7 +22,7 @@ class BestSellerHeader extends StatelessWidget {
             context.pushNamed(RouteName.bestSelling);
           },
           child: Text(
-            isArabic() ? "المزيد" : "More",
+         "المزيد" ,
             style: AppStyles.font13stoneGraySemiBold,
           ),
         ),

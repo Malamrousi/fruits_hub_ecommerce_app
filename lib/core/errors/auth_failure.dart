@@ -2,53 +2,36 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../func/is_arabic.dart';
 
 class AuthFailure {
-    String handleFirebaseAuthError(FirebaseAuthException e, {String? customMessage}) {
+  String handleFirebaseAuthError(FirebaseAuthException e,
+      {String? customMessage}) {
     log('FirebaseAuthException: ${e.toString()}');
-    
+
     switch (e.code) {
       case 'weak-password':
-        return isArabic()
-            ? 'كلمة المرور ضعيفة'
-            : 'Password should be at least 6 characters';
+        return 'كلمة المرور ضعيفة';
       case 'email-already-in-use':
-        return isArabic()
-            ? 'الحساب موجود بالفعل لهذا البريد الإلكتروني'
-            : 'The account already exists for that email.';
+        return 'الحساب موجود بالفعل لهذا البريد الإلكتروني';
       case 'invalid-email':
-        return isArabic()
-            ? 'عنوان البريد الإلكتروني غير صالح'
-            : 'The email address is badly formatted.';
+        return 'عنوان البريد الإلكتروني غير صالح';
       case 'operation-not-allowed':
-        return isArabic()
-            ? 'حسابات البريد الإلكتروني غير ممكنة'
-            : 'Email/password accounts are not enabled. Please contact support.';
+        return 'حسابات البريد الإلكتروني غير ممكنة';
       case 'network-request-failed':
-        return isArabic()
-            ? 'خطأ في الاتصال بالشبكة'
-            : 'Network error. Please check your internet connection.';
+        return 'خطأ في الاتصال بالشبكة';
       case 'user-not-found':
+        return 'لا يوجد حساب لهذا البريد الإلكتروني';
       case 'wrong-password':
-        return isArabic()
-            ? 'كلمة المرور اوالبريد الإلكتروني غير صحيح'
-            : 'Wrong email or password provided for that user.';
+        return 'كلمة المرور اوالبريد الإلكتروني غير صحيح';
       case 'invalid-credential':
-        return isArabic()
-            ?"معلومات التسجيل غير صالحة"
-            : "Invalid credential";
+        return "معلومات التسجيل غير صالحة";
       default:
-        return isArabic()
-            ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-            : customMessage ?? 'An unexpected error occurred: ${e.message}';
+        return 'حدث خطأ ، يرجى المحاولة مرة أخرى';
     }
   }
 
   String handleGeneralError(Object e) {
     log('General Exception: ${e.toString()}');
-    return isArabic()
-        ? 'حدث خطأ ، يرجى المحاولة مرة أخرى'
-        : 'An error occurred, please try again later.';
+    return 'حدث خطأ ، يرجى المحاولة مرة أخرى';
   }
 }

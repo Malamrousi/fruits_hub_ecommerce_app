@@ -1,4 +1,3 @@
-import 'package:fruit_hub/core/func/is_arabic.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
 
 class BottomNavBarItemEntity{
@@ -12,17 +11,17 @@ BottomNavBarItemEntity({required this.activeImage,required this.inActiveImage,re
 List<BottomNavBarItemEntity> bottomNavBarItems = [
   BottomNavBarItemEntity(activeImage: Assets.imagesBottomBarIconBoldHome, 
   inActiveImage: Assets.imagesBottomBarIconOutlineHome,
-   title: isArabic() ? "الرئيسية" : "Home"),
+   title:  "الرئيسية" ),
 
   BottomNavBarItemEntity(activeImage: Assets.imagesBottomBarIconBoldProducts,
   inActiveImage: Assets.imagesBottomBarIconOutlineProducts,
-   title: isArabic() ? "المنتجات" : "Products"),
+   title:  "المنتجات" ),
 
   BottomNavBarItemEntity(activeImage: Assets.imagesBottomBarIconBoldShoppingCart,
   inActiveImage: Assets.imagesBottomBarIconOutlineShoppingCart,
-   title: isArabic() ? "السلة" : "Cart"),
+   title:  "السلة" ),
 
   BottomNavBarItemEntity(activeImage: Assets.imagesBottomBarIconBoldUser,
   inActiveImage: Assets.imagesBottomBarIconOutlineUser,
-   title: isArabic() ? "المستخدم" : "User"),
+   title:  "المستخدم" ),
 ];
