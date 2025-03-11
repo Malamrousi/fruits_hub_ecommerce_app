@@ -8,7 +8,7 @@ import 'package:fruit_hub/features/home/presentation/view/widgets/best_seller_he
 import 'package:fruit_hub/features/home/presentation/view/widgets/feature_list.dart';
 import 'package:fruit_hub/features/home/presentation/view/widgets/home_app_bar.dart';
 
-import 'best_selling_grid_view.dart';
+import 'best_selling_grid_view_bloc_builder.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({
@@ -47,9 +47,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               ],
             ),
           ),
-          const BestSellingGridView(),
+          const BestSellingGridViewBlocBuilder(),
         ],
       ),
     );
   }
 }
+
