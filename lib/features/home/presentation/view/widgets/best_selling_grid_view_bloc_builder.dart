@@ -16,7 +16,6 @@ class BestSellingGridViewBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProductCubit, ProductState>(
       builder: (context, state) {
-        
         if (state is ProductSuccess) {
           return BestSellingGridView(
             products: state.products,
@@ -31,7 +30,7 @@ class BestSellingGridViewBlocBuilder extends StatelessWidget {
           return Skeletonizer.sliver(
               enabled: true,
               child: BestSellingGridView(
-                products: getDummyProduct(),
+                products: getDummyProducts(),
               ));
         }
       },

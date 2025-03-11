@@ -1,106 +1,89 @@
-import 'dart:io';
 
-import 'package:fruit_hub/core/entities/product_entity.dart';
-import 'package:fruit_hub/core/models/review_model.dart';
+import '../entities/product_entity.dart';
+import '../helper/get_average_rating.dart';
+import 'review_model.dart';
 
 class ProductModel {
   final String name;
-  final String description;
   final String code;
+  final String description;
   final num price;
-  final bool isFeaturedItem;
-  final File imageFile;
+
+  final bool isFeatured;
+  final num sellingCount;
   String? imageUrl;
-  final int expirationsMonth;
+  final int expirationsMonths;
   final bool isOrganic;
   final int numberOfCalories;
-  final int unitAmount;
-  final num averageRating = 0;
+  final num avgRating;
   final num ratingCount = 0;
-  final List<ReviewModel> reviewModels;
-  final int sellingAmount;
-  ProductModel({
-    required this.name,
-    required this.description,
-    required this.code,
-    required this.price,
-    required this.isFeaturedItem,
-    required this.imageFile,
-    this.imageUrl,
-    this.sellingAmount = 0,
-    required this.expirationsMonth,
-    required this.isOrganic,
-    required this.numberOfCalories,
-    required this.unitAmount,
-    required this.reviewModels,
-  });
-
-  // factory ProductModel.fromProductEntity(ProductEntity productEntity) {
-  //   return ProductModel(
-  //       reviewModels: productEntity.reviewEntities
-  //           .map((e) => ReviewModel.fromEntity(e))
-  //           .toList(),
-  //       name: productEntity.name,
-  //       description: productEntity.description,
-  //       code: productEntity.code,
-  //       price: productEntity.price,
-  //       isFeaturedItem: productEntity.isFeaturedItem,
-  //       imageFile: productEntity.imageFile,
-  //       imageUrl: productEntity.imageUrl,
-  //       expirationsMonth: productEntity.expirationsMonth,
-  //       isOrganic: productEntity.isOrganic,
-  //       numberOfCalories: productEntity.numberOfCalories,
-  //       unitAmount: productEntity.unitAmount);
-  // }
+  final int unitAmount;
+  final List<ReviewModel> reviews;
+  ProductModel(
+      {required this.name,
+      required this.code,
+      required this.description,
+      required this.expirationsMonths,
+      required this.numberOfCalories,
+      required this.avgRating,
+      required this.unitAmount,
+      required this.sellingCount,
+      required this.reviews,
+      required this.price,
+      required this.isOrganic,
+      required this.isFeatured,
+      this.imageUrl});
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
+      avgRating: getAvgRating(json['reviews']),
       name: json['name'],
-      description: json['description'],
       code: json['code'],
-      price: json['price'],
-      isFeaturedItem: json['isFeaturedItem'],
-      imageFile: File(json['imageFile']),
-      imageUrl: json['imageUrl'],
-      expirationsMonth: json['expirationsMonth'],
-      isOrganic: json['isOrganic'],
+      description: json['description'],
+      expirationsMonths: json['expirationsMonths'],
       numberOfCalories: json['numberOfCalories'],
       unitAmount: json['unitAmount'],
-      reviewModels: List<ReviewModel>.from(
-          json['reviewModels'].map((e) => ReviewModel.fromJson(e))),
+      sellingCount: json['sellingCount'],
+      reviews: json['reviews'] != null
+          ? List<ReviewModel>.from(
+              json['reviews'].map((e) => ReviewModel.fromJson(e)))
+          : [],
+      price: json['price'],
+      isOrganic: json['isOrganic'],
+      isFeatured: json['isFeatured'],
+      imageUrl: json['imageUrl'],
     );
   }
-  Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'description': description,
-      'code': code,
-      'price': price,
-      'isFeaturedItem': isFeaturedItem,
-      'imageUrl': imageUrl,
-      'expirationsMonth': expirationsMonth,
-      'sellingAmount': sellingAmount,
-      'isOrganic': isOrganic,
-      'numberOfCalories': numberOfCalories,
-      'unitAmount': unitAmount,
-      'reviewModels': reviewModels.map((e) => e.toJson()).toList()
-    };
-  }
 
-ProductEntity toEntity() {
-
+  ProductEntity toEntity() {
     return ProductEntity(
         name: name,
-        description: description,
         code: code,
+        description: description,
         price: price,
-        isFeaturedItem: isFeaturedItem,
-        imageFile: imageFile,
-        imageUrl: imageUrl,
-        expirationsMonth: expirationsMonth,
-        isOrganic: isOrganic,
+        reviews: reviews.map((e) => e.toEntity()).toList(),
+        expirationsMonths: expirationsMonths,
         numberOfCalories: numberOfCalories,
         unitAmount: unitAmount,
-        reviewEntities: reviewModels.map((e) => e.toEntity()).toList());
+        isOrganic: isOrganic,
+        isFeatured: isFeatured,
+        imageUrl: imageUrl);
+  }
+
+  toJson() {
+    return {
+      'name': name,
+      'code': code,
+      'description': description,
+      'price': price,
+      'isFeatured': isFeatured,
+      'imageUrl': imageUrl,
+      'expirationsMonths': expirationsMonths,
+      'numberOfCalories': numberOfCalories,
+      'unitAmount': unitAmount,
+      'isOrganic': isOrganic,
+      'reviews': reviews.map((e) => e.toJson()).toList()
+    };
   }
 }
+
