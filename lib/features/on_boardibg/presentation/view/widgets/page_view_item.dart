@@ -45,8 +45,7 @@ class PageViewItem extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  SharedPreferencesService
-                      .setBool(isOnBoardingSeenView, true);
+                  SharedPreferencesService.setBool(isOnBoardingSeenView, true);
                   context.pushReplacementNamed(RouteName.login);
                 },
                 child: Visibility(

@@ -1,6 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/entities/product_entity.dart';
-import 'package:fruit_hub/core/utils/app_images.dart';
 import 'package:fruit_hub/core/utils/app_styles.dart';
 import 'package:fruit_hub/core/utils/color_manger.dart';
 
@@ -28,24 +28,32 @@ class FruitItem extends StatelessWidget {
             ),
           ),
           Positioned.fill(
+              top: 30,
               child: Column(
             children: [
-              Image.asset(
-                Assets.imagesPineapple,
-                // fit: BoxFit.fill,
-                width: 200,
-                height: 150,
+              Flexible(
+                child: CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  imageUrl: productEntity.imageUrl ?? '',
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (context, url, error) =>const Icon(
+                    Icons.error_outline,
+                    color: Colors.red,
+                  ),
+                ),
               ),
               ListTile(
                 title: Text(
-                  "اناناس",
+                  productEntity.name,
                   style: AppStyles.font13stoneGraySemiBold,
                 ),
                 subtitle: Text.rich(
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: '30جنية /',
+                        text: "${productEntity.price} جنيه ",
                         style: AppStyles.font13GoldenColorBold,
                       ),
                       TextSpan(

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-
-import 'package:fruit_hub/features/home/domain/entities/bottom_nav_bar_item_entites.dart';
 import 'package:fruit_hub/features/home/presentation/view/widgets/nav_bar_item.dart';
 
-class CustomBottomNavBar extends StatefulWidget {
-  const CustomBottomNavBar({super.key});
+import '../../../domain/entities/bottom_nav_bar_item_entites.dart';
 
+class CustomBottomNavigationBar extends StatefulWidget {
+  const CustomBottomNavigationBar({super.key, required this.onItemTapped});
+  final ValueChanged<int> onItemTapped;
   @override
-  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
+  State<CustomBottomNavigationBar> createState() =>
+      _CustomBottomNavigationBarState();
 }
 
-
-class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-  int currentIndex = 0;
-
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,25 +36,27 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         ],
       ),
       child: Row(
-        children: bottomNavBarItems.asMap().entries.map((entry){
-          var index = entry.key;
-          var item = entry.value;
+        children: bottomNavBarItems.asMap().entries.map((e) {
+          var index = e.key;
+          var entity = e.value;
+
           return Expanded(
-            flex: currentIndex == index ? 3 : 2,
+            flex: index == selectedIndex ? 3 : 2,
             child: GestureDetector(
               onTap: () {
                 setState(() {
-                  currentIndex = index;
+                  selectedIndex = index;
+                  widget.onItemTapped(index);
                 });
               },
               child: NavBarItem(
-                isSelected: currentIndex == index,
-                bottomNavBarItemEntity: item,
+                isSelected: selectedIndex == index,
+                bottomNavigationBarEntity: entity,
               ),
             ),
           );
-        }
-      ).toList(),
-     ));
+        }).toList(),
+      ),
+    );
   }
 }

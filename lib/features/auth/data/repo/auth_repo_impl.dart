@@ -19,7 +19,7 @@ import '../../../../constant.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final FireBaseAuthServices fireBaseAuthServices;
-  final DataBaseServices dataBaseServices;
+  final DatabaseService dataBaseServices;
 
   AuthRepoImpl({
     required this.fireBaseAuthServices,
@@ -84,8 +84,8 @@ class AuthRepoImpl extends AuthRepo {
     try {
       user = await fireBaseAuthServices.signInWithGoogle();
       var userData = UserModel.fromFirebaseUser(user);
-      var isUserExist = await dataBaseServices.isDataExist(
-          path: BackEndEndPoints.getUserEndPoint, uid: userData.uid);
+      var isUserExist = await dataBaseServices.checkIfDataExists(
+          path: BackendEndpoint.getUsersData, docuementId: userData.uid);
       if (isUserExist) {
         await getUserData(uid: user.uid);
       } else {
@@ -110,8 +110,8 @@ class AuthRepoImpl extends AuthRepo {
     try {
       user = await fireBaseAuthServices.signInWithFacebook();
       var userData = UserModel.fromFirebaseUser(user);
-      var isUserExist = await dataBaseServices.isDataExist(
-          path: BackEndEndPoints.getUserEndPoint, uid: userData.uid);
+      var isUserExist = await dataBaseServices.checkIfDataExists(
+          path: BackendEndpoint.getUsersData, docuementId: userData.uid);
       if (isUserExist) {
         await getUserData(uid: user.uid);
       } else {
@@ -135,8 +135,8 @@ class AuthRepoImpl extends AuthRepo {
     User? user;
     try {
       user = await fireBaseAuthServices.signInWithApple();
-      var isUserExist = await dataBaseServices.isDataExist(
-          path: BackEndEndPoints.getUserEndPoint, uid: user.uid);
+      var isUserExist = await dataBaseServices.checkIfDataExists(
+          path: BackendEndpoint.getUsersData, docuementId: user.uid);
       if (isUserExist) {
         await getUserData(uid: user.uid);
       } else {
@@ -158,16 +158,16 @@ class AuthRepoImpl extends AuthRepo {
     required UserEntity userEntity,
   }) async {
     await dataBaseServices.addData(
-        path: BackEndEndPoints.addUserEndPoint,
+        path: BackendEndpoint.getUsersData,
         data: UserModel.fromEntity(userEntity).toMap(),
-        uid: userEntity.uid);
+        documentId: userEntity.uid);
   }
 
 //getUserData
   @override
   Future<UserEntity> getUserData({required String uid}) async {
     var data = await dataBaseServices.getData(
-        path: BackEndEndPoints.getUserEndPoint, uid: uid);
+        path:BackendEndpoint.getUsersData, docuementId: uid);
     return UserModel.fromMap(data);
   }
 

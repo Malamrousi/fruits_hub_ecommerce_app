@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/features/home/domain/entities/bottom_nav_bar_item_entites.dart';
-import 'package:fruit_hub/features/home/presentation/view/widgets/active_item.dart';
-import 'package:fruit_hub/features/home/presentation/view/widgets/in_active_item.dart';
+
+import '../../../domain/entities/bottom_nav_bar_item_entites.dart';
+import 'active_item.dart';
+import 'in_active_item.dart';
 
 class NavBarItem extends StatelessWidget {
-  const NavBarItem({super.key, required this.isSelected, required this.bottomNavBarItemEntity});
- final bool isSelected ;
- final BottomNavBarItemEntity bottomNavBarItemEntity;  
+  const NavBarItem(
+      {super.key,
+      required this.isSelected,
+      required this.bottomNavigationBarEntity});
+
+  final bool isSelected;
+  final BottomNavigationBarEntity  bottomNavigationBarEntity;
   @override
   Widget build(BuildContext context) {
-    return isSelected ?  ActiveItem(
-      image:bottomNavBarItemEntity.activeImage, 
-      text:bottomNavBarItemEntity.title,
-    ) :  InActiveItem(
-      image: bottomNavBarItemEntity
-          .inActiveImage,
-    );
+    return isSelected
+        ? ActiveItem(
+            image: bottomNavigationBarEntity.activeImage,
+            text: bottomNavigationBarEntity.title,
+          )
+        : InActiveItem(
+            image: bottomNavigationBarEntity.inActiveImage,
+          );
   }
 }

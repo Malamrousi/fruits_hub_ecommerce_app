@@ -15,16 +15,18 @@ final getIT = GetIt.instance;
 
 void setUpGetIt() {
   getIT.registerSingleton<FireBaseAuthServices>(FireBaseAuthServices());
-  getIT.registerLazySingleton<DataBaseServices>(() => FireStoreServices());
+  getIT.registerLazySingleton<DatabaseService>(() => FireStoreService(
+
+  ));
   getIT.registerSingleton<AuthRepo>(AuthRepoImpl(
     fireBaseAuthServices: getIT.get<FireBaseAuthServices>(),
-    dataBaseServices: getIT.get<DataBaseServices>(),
+    dataBaseServices: getIT.get<DatabaseService>(),
   ));
 
   getIT.registerSingleton<SignupCubit>(SignupCubit(getIT.get<AuthRepo>()));
   getIT.registerSingleton<LoginCubit>(LoginCubit(getIT.get<AuthRepo>()));
-  getIT.registerSingleton<ProductRepoImpl>(ProductRepoImpl(dataBaseServices:  getIT.get<DataBaseServices>()));
-    getIT.registerSingleton<ProductRepo>(getIT.get<ProductRepoImpl>());
-    getIT.registerSingleton<ProductCubit>( ProductCubit( getIT.get<ProductRepo>()));
+  getIT.registerSingleton<ProductsRepoImpl>(ProductsRepoImpl(  getIT.get<DatabaseService>()));
+    getIT.registerSingleton<ProductsRepo>(getIT.get<ProductsRepoImpl>());
+    getIT.registerSingleton<ProductCubit>( ProductCubit( getIT.get<ProductsRepoImpl>()));
 
 }

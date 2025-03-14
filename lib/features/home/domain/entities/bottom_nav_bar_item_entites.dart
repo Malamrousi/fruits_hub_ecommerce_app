@@ -1,27 +1,27 @@
 import 'package:fruit_hub/core/utils/app_images.dart';
 
-class BottomNavBarItemEntity{
+class BottomNavigationBarEntity{
 String activeImage , inActiveImage;
 final String title;
-BottomNavBarItemEntity({required this.activeImage,required this.inActiveImage,required this.title});
+BottomNavigationBarEntity({required this.activeImage,required this.inActiveImage,required this.title});
 
 
 }
 
-List<BottomNavBarItemEntity> bottomNavBarItems = [
-  BottomNavBarItemEntity(activeImage: Assets.imagesBottomBarIconBoldHome, 
+List<BottomNavigationBarEntity> bottomNavBarItems = [
+  BottomNavigationBarEntity(activeImage: Assets.imagesBottomBarIconBoldHome, 
   inActiveImage: Assets.imagesBottomBarIconOutlineHome,
    title:  "الرئيسية" ),
 
-  BottomNavBarItemEntity(activeImage: Assets.imagesBottomBarIconBoldProducts,
+  BottomNavigationBarEntity(activeImage: Assets.imagesBottomBarIconBoldProducts,
   inActiveImage: Assets.imagesBottomBarIconOutlineProducts,
    title:  "المنتجات" ),
 
-  BottomNavBarItemEntity(activeImage: Assets.imagesBottomBarIconBoldShoppingCart,
+  BottomNavigationBarEntity(activeImage: Assets.imagesBottomBarIconBoldShoppingCart,
   inActiveImage: Assets.imagesBottomBarIconOutlineShoppingCart,
    title:  "السلة" ),
 
-  BottomNavBarItemEntity(activeImage: Assets.imagesBottomBarIconBoldUser,
+  BottomNavigationBarEntity(activeImage: Assets.imagesBottomBarIconBoldUser,
   inActiveImage: Assets.imagesBottomBarIconOutlineUser,
    title:  "المستخدم" ),
 ];

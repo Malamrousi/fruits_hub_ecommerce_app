@@ -1,39 +1,43 @@
-import 'package:fruit_hub/core/services/data_base_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class FireStoreServices implements DataBaseServices {
-  FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+import 'data_base_services.dart';
+
+class FireStoreService implements DatabaseService {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
   @override
   Future<void> addData(
       {required String path,
       required Map<String, dynamic> data,
-      required String? uid}) async {
-    if (uid != null) {
-      await _firestore.collection(path).doc(uid).set(data);
+      String? documentId}) async {
+    if (documentId != null) {
+      firestore.collection(path).doc(documentId).set(data);
     } else {
-      await _firestore.collection(path).add(data);
+      await firestore.collection(path).add(data);
     }
   }
 
   @override
   Future<dynamic> getData(
-      {required String path, String? uid, Map<String, dynamic>? query}) async {
-    if (uid != null) {
-      return (await _firestore.collection(path).doc(uid).get()).data()!;
+      {required String path,
+      String? docuementId,
+      Map<String, dynamic>? query}) async {
+    if (docuementId != null) {
+      var data = await firestore.collection(path).doc(docuementId).get();
+      return data.data();
     } else {
-      Query<Map<String, dynamic>> data =  _firestore.collection(path);
+      Query<Map<String, dynamic>> data = firestore.collection(path);
       if (query != null) {
         if (query['orderBy'] != null) {
-          var orderBy = query['orderBy'];
+          var orderByField = query['orderBy'];
           var descending = query['descending'];
-          data = data.orderBy(orderBy, descending: descending);
+          data = data.orderBy(orderByField, descending: descending);
         }
-
         if (query['limit'] != null) {
           var limit = query['limit'];
           data = data.limit(limit);
         }
+
       }
       var result = await data.get();
       return result.docs.map((e) => e.data()).toList();
@@ -41,8 +45,9 @@ class FireStoreServices implements DataBaseServices {
   }
 
   @override
-  Future<bool> isDataExist({required String path, required String uid}) async {
-    var data = await _firestore.collection(path).doc(uid).get();
+  Future<bool> checkIfDataExists(
+      {required String path, required String docuementId}) async {
+    var data = await firestore.collection(path).doc(docuementId).get();
     return data.exists;
   }
 }

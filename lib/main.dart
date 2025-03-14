@@ -54,7 +54,7 @@ class FruitsHub extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: generateRoute,
       initialRoute: user != null 
-          ? RouteName.home 
+          ? RouteName.main 
           : isOnBoardingSeen 
               ? RouteName.login 
               : RouteName.onBoarding,

@@ -33,27 +33,26 @@ class ProductModel {
       required this.isOrganic,
       required this.isFeatured,
       this.imageUrl});
-
-  factory ProductModel.fromJson(Map<String, dynamic> json) {
-    return ProductModel(
-      avgRating: getAvgRating(json['reviews']),
-      name: json['name'],
-      code: json['code'],
-      description: json['description'],
-      expirationsMonths: json['expirationsMonths'],
-      numberOfCalories: json['numberOfCalories'],
-      unitAmount: json['unitAmount'],
-      sellingCount: json['sellingCount'],
-      reviews: json['reviews'] != null
-          ? List<ReviewModel>.from(
-              json['reviews'].map((e) => ReviewModel.fromJson(e)))
-          : [],
-      price: json['price'],
-      isOrganic: json['isOrganic'],
-      isFeatured: json['isFeatured'],
-      imageUrl: json['imageUrl'],
-    );
-  }
+factory ProductModel.fromJson(Map<String, dynamic> json) {
+  return ProductModel(
+    avgRating: getAvgRating(json['reviews']),
+    name: json['name'] ?? '',
+    code: json['code'] ?? '',
+    description: json['description'] ?? '',
+    expirationsMonths: json['expirationsMonths'] ?? 0,
+    numberOfCalories: json['numberOfCalories'] ?? 0,
+    unitAmount: json['unitAmount'] ?? 0,
+    sellingCount: json['sellingCount'] ?? 0,
+    reviews: (json['reviews'] is List) 
+        ? List<ReviewModel>.from(
+            (json['reviews'] as List).map((e) => ReviewModel.fromJson(e)))
+        : [],
+    price: json['price'] ?? 0,
+    isOrganic: json['isOrganic'] ?? false,
+    isFeatured: json['isFeatured'] ?? false,
+    imageUrl: json['imageUrl'],
+  );
+}
 
   ProductEntity toEntity() {
     return ProductEntity(

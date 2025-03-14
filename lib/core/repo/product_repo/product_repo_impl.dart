@@ -6,48 +6,40 @@ import 'package:fruit_hub/core/repo/product_repo/product_repo.dart';
 import 'package:fruit_hub/core/services/data_base_services.dart';
 import 'package:fruit_hub/core/utils/back_end_end_points.dart';
 
-class ProductRepoImpl extends ProductRepo {
-  final DataBaseServices dataBaseServices;
-  ProductRepoImpl({required this.dataBaseServices});
+class ProductsRepoImpl extends ProductsRepo {
+  final DatabaseService databaseService;
+
+  ProductsRepoImpl(this.databaseService);
   @override
-  Future<Either<Failures, List<ProductEntity>>> getBestSellingProduct() async {
+  Future<Either<Failures, List<ProductEntity>>> getBestSellingProducts() async {
     try {
-      var result = await dataBaseServices.getData(
-          path: BackEndEndPoints.getProductEndPoint,
+      var data = await databaseService.getData(
+          path: BackendEndpoint.getProducts,
           query: {
             'limit': 10,
-             'orderBy': 'sellingAmount',
-             'descending': true
+            'orderBy': 'sellingCount',
+            'descending': true
           }) as List<Map<String, dynamic>>;
 
-      List<ProductModel> productModels =
-          result.map((e) => ProductModel.fromJson(e)).toList();
-
-      List<ProductEntity> productEntities =
-          productModels.map((e) => e.toEntity()).toList();
-
-      return Right(productEntities);
+      List<ProductEntity> products =
+          data.map((e) => ProductModel.fromJson(e).toEntity()).toList();
+      return right(products);
     } catch (e) {
-      return left(ServerFailure(message: 'Failed to get products'));
+      return left(ServerFailure( message: 'Failed to get products'));
     }
   }
 
   @override
-  Future<Either<Failures, List<ProductEntity>>> getProduct() async {
+  Future<Either<Failures, List<ProductEntity>>> getProducts() async {
     try {
-      var result = await dataBaseServices.getData(
-              path: BackEndEndPoints.getProductEndPoint)
-          as List<Map<String, dynamic>>;
+      var data = await databaseService.getData(
+          path: BackendEndpoint.getProducts) as List<Map<String, dynamic>>;
 
-      List<ProductModel> productModels =
-          result.map((e) => ProductModel.fromJson(e)).toList();
-
-      List<ProductEntity> productEntities =
-          productModels.map((e) => e.toEntity()).toList();
-
-      return Right(productEntities);
+      List<ProductEntity> products =
+          data.map((e) => ProductModel.fromJson(e).toEntity()).toList();
+      return right(products);
     } catch (e) {
-      return left(ServerFailure(message: 'Failed to get products'));
+      return left(ServerFailure(message:  'Failed to get products'));
     }
   }
 }

@@ -15,7 +15,7 @@ ProductEntity getDummyProduct() {
     isOrganic: true,
     isFeatured: true,
     imageUrl:
-        'https://www.freshnessblogger.com/wp-content/uploads/2020/11/Apple-1.jpg',
+        null,
   );
 }
 

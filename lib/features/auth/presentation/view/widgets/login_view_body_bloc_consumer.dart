@@ -18,7 +18,7 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
-          context.pushNamed(RouteName.home);
+          context.pushNamed(RouteName.main);
         } else if (state is LoginFailure) {
           buildErrorBar(context, state.message);
         }
