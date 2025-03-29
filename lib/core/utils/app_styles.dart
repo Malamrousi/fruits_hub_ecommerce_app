@@ -14,6 +14,11 @@ class AppStyles {
     fontWeight: FontWeightManger.semiBold,
     color: ColorManger.stoneGrayColor,
   );
+    static TextStyle font13stoneGrayRegular = const TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightManger.regular,
+    color: ColorManger.stoneGrayColor,
+  );
   static TextStyle font23sPrimaryColorBold = const TextStyle(
     fontSize: 23,
     fontWeight: FontWeightManger.bold,
