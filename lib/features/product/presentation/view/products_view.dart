@@ -4,7 +4,6 @@ import 'package:fruit_hub/core/cubits/product/product_cubit.dart';
 import 'package:fruit_hub/core/services/get_it_services.dart';
 
 
-import '../../../../core/repo/product_repo/product_repo.dart';
 import 'widgets/products_view_body.dart';
 
 class ProductsView extends StatelessWidget {
@@ -13,9 +12,7 @@ class ProductsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProductCubit(
-        getIT.get<ProductsRepo>(),
-      ),
+      create: (context) => getIT.get<ProductCubit>(),
       child: const ProductsViewBody(),
     );
   }

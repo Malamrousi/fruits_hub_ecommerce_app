@@ -58,6 +58,10 @@ class Assets {
   /// assets/images/filtter.svg
   static const String imagesFiltter = "assets/images/filtter.svg";
 
+  /// Assets for imagesFiltter2
+  /// assets/images/filtter2.svg
+  static const String imagesFiltter2 = "assets/images/filtter2.svg";
+
   /// Assets for imagesFruitBasket1
   /// assets/images/fruit_basket1.svg
   static const String imagesFruitBasket1 = "assets/images/fruit_basket1.svg";

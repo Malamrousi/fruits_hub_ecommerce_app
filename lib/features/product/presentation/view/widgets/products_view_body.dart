@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/cubits/product/product_cubit.dart';
 import '../../../../../core/widgets/search_text_filed.dart';
-import '../../../../home/presentation/view/widgets/best_selling_grid_view_bloc_builder.dart';
+import '../../../../home/presentation/view/widgets/product_grid_view_bloc_builder.dart';
 import 'custom_home_app_bar.dart';
+import 'product_view_header.dart';
 
 class ProductsViewBody extends StatefulWidget {
   const ProductsViewBody({super.key});
@@ -27,7 +30,7 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 80,
+                  height: 20,
                 ),
                 const CustomHomeAppBar(),
                 const SizedBox(
@@ -37,16 +40,15 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
                 const SizedBox(
                   height: 12,
                 ),
-                // ProductsViewHeader(
-                //     productsLength:
-                //         context.read<ProductsCubit>().productsLength),
-                // const SizedBox(
-                //   height: 8,
-                // ),
+                ProductViewHeader(
+                    productCount: context.read<ProductCubit>().productLength),
+                const SizedBox(
+                  height: 8,
+                ),
               ],
             ),
           ),
-          const BestSellingGridViewBlocBuilder()
+          const ProductGridViewBlocBuilder()
         ],
       ),
     );

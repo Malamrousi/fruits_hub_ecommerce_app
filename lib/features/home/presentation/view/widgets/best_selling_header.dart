@@ -4,8 +4,8 @@ import 'package:fruit_hub/core/utils/app_styles.dart';
 
 import '../../../../../core/routing/route_name.dart';
 
-class BestSellerHeader extends StatelessWidget {
-  const BestSellerHeader({super.key});
+class BestSellingHeader extends StatelessWidget {
+  const BestSellingHeader({super.key});
 
   @override
   Widget build(BuildContext context) {

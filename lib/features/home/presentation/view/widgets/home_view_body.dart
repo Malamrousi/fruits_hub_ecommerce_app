@@ -4,11 +4,11 @@ import 'package:fruit_hub/constant.dart';
 import 'package:fruit_hub/core/cubits/product/product_cubit.dart';
 import 'package:fruit_hub/core/helper/spacing.dart';
 import 'package:fruit_hub/core/widgets/search_text_filed.dart';
-import 'package:fruit_hub/features/home/presentation/view/widgets/best_seller_header.dart';
+import 'package:fruit_hub/features/home/presentation/view/widgets/best_selling_header.dart';
 import 'package:fruit_hub/features/home/presentation/view/widgets/feature_list.dart';
 import 'package:fruit_hub/features/home/presentation/view/widgets/home_app_bar.dart';
 
-import 'best_selling_grid_view_bloc_builder.dart';
+import 'product_grid_view_bloc_builder.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({
@@ -42,12 +42,12 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 verticalSpacing(12),
                 const FeatureList(),
                 verticalSpacing(12),
-                const BestSellerHeader(),
+                const BestSellingHeader(),
                 verticalSpacing(8),
               ],
             ),
           ),
-          const BestSellingGridViewBlocBuilder(),
+          const ProductGridViewBlocBuilder(),
         ],
       ),
     );
