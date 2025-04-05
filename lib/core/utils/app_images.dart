@@ -110,6 +110,10 @@ class Assets {
   /// assets/images/strawberry.png
   static const String imagesStrawberry = "assets/images/strawberry.png";
 
+  /// Assets for imagesTrash
+  /// assets/images/trash.svg
+  static const String imagesTrash = "assets/images/trash.svg";
+
   /// Assets for imagesUserAppBar
   /// assets/images/user_app_bar.png
   static const String imagesUserAppBar = "assets/images/user_app_bar.png";

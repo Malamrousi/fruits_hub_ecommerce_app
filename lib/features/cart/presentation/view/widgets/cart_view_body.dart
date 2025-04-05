@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/utils/app_styles.dart';
+import 'package:fruit_hub/core/widgets/custom_button.dart';
+import 'package:fruit_hub/features/cart/presentation/view/widgets/cart_item_list.dart';
+import 'package:fruit_hub/features/cart/presentation/view/widgets/custom_divider.dart';
 
 import 'cart_header.dart';
 import 'cart_view_header.dart';
@@ -8,17 +12,45 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        children: [
-          CartViewHeader(),
-          SizedBox(
-            height: 20,
+    return Stack(
+      children: [
+        const CustomScrollView(
+          slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                CartViewHeader(),
+                SizedBox(
+                  height: 20,
+                ),
+                CartHeader(),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
           ),
-          CartHeader()
-        ],
-      ),
+          SliverToBoxAdapter(
+            child: CustomCartDivider(),
+          ),
+          CartItemList(),
+          SliverToBoxAdapter(
+            child: CustomCartDivider(),
+          ),
+        ]),
+        Positioned(
+          left: 16,
+          right: 16,
+          bottom: MediaQuery.sizeOf(context).height * .07,
+          child: CustomButton(
+            title: 'الدفع  120جنيه',
+            textStyle: AppStyles.font16WhiteBold,
+            bottomHeight: 50,
+             onPressed: () {  },
+            
+          ),
+        ),
+      ],
     );
   }
 }

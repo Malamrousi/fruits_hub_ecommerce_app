@@ -92,4 +92,10 @@ class AppStyles {
     fontWeight: FontWeightManger.bold,
     color: ColorManger.goldenColor,
   );
+              static TextStyle font16GoldenColorBold = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightManger.bold,
+    color: ColorManger.goldenColor,
+  );
 }
+
