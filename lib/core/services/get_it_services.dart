@@ -9,6 +9,7 @@ import 'package:fruit_hub/features/auth/domain/repo/auth_repo.dart';
 import 'package:fruit_hub/features/auth/presentation/cubits/cubit/login_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
 import 'package:fruit_hub/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
+import 'package:fruit_hub/features/cart/presentation/cubit/cart_item/cart_item_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final getIT = GetIt.instance;
@@ -30,4 +31,5 @@ void setUpGetIt() {
       ProductCubit(getIT.get<ProductsRepoImpl>()));
 
   getIT.registerFactory<CartCubit>(() => CartCubit());
+  getIT.registerFactory<CartItemCubit>(() => CartItemCubit());
 }
