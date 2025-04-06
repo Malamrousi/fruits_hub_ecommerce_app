@@ -12,7 +12,7 @@ class CartItemList extends StatelessWidget {
     return SliverList.separated(
       separatorBuilder: (context, index) => const CustomCartDivider(),
       itemCount: cartItems.length,
-      itemBuilder: (context, index) =>  Padding(
+      itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: CartItem(
           cartItemEntity: cartItems[index],

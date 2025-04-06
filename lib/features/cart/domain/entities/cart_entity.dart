@@ -10,6 +10,9 @@ class CartEntity {
     cartItems.add(cartItemEntity);
   }
 
+ removeCartItem({required CartItemEntity cartItemEntity}) {
+   cartItems.remove(cartItemEntity);
+ }
   bool isExists({required ProductEntity productEntity}) {
     for (var item in cartItems) { 
       if (item.productEntity == productEntity) {
@@ -18,7 +21,13 @@ class CartEntity {
     }
     return false;
   }
-
+  double getTotalPrice() {
+    double totalPrice = 0;
+    for (var item in cartItems) {
+      totalPrice += item.calculateTotalPrice();
+    }
+    return totalPrice;
+  }
   CartItemEntity getCartItem({required ProductEntity productEntity}) {
     for (var item in cartItems) {
       if (item.productEntity == productEntity) {

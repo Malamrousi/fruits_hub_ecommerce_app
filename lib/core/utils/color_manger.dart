@@ -10,4 +10,5 @@ class ColorManger {
   static const Color cloudWhite = Color(0xffF9FAFA);
   static const Color dustyGray = Color(0xff949D9E);
   static const Color grayColor = Color(0xffDDDFDF);
+  static const Color redColor = Color(0xfffe354e);
 }

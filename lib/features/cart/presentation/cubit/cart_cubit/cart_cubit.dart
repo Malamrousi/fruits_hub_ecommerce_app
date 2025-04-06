@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/features/cart/domain/entities/cart_entity.dart';
+import 'package:fruit_hub/features/cart/domain/entities/cart_item_entity.dart';
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
@@ -17,7 +18,14 @@ class CartCubit extends Cubit<CartState> {
       cartEntity.addCartItem(cartItemEntity: cartItems);
     }
     emit(
-      CartProductAdd(),
+      CartItemAdd(),
+    );
+  }
+
+  void removeProduct({required CartItemEntity cartItemEntity}) {
+    cartEntity.removeCartItem(cartItemEntity: cartItemEntity);
+    emit(
+      CartItemRemove(),
     );
   }
 }
