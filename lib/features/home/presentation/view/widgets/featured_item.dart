@@ -57,7 +57,7 @@ class FeaturedItem extends StatelessWidget {
                       const SizedBox(
                         height: 11,
                       ),
-                      FeatureItemButton(),
+                   const   FeatureItemButton(),
                       const SizedBox(
                         height: 29,
                       ),

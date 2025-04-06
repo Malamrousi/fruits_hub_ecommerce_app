@@ -8,16 +8,14 @@ import 'package:fruit_hub/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:fruit_hub/features/auth/domain/repo/auth_repo.dart';
 import 'package:fruit_hub/features/auth/presentation/cubits/cubit/login_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
+import 'package:fruit_hub/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:get_it/get_it.dart';
-
 
 final getIT = GetIt.instance;
 
 void setUpGetIt() {
   getIT.registerSingleton<FireBaseAuthServices>(FireBaseAuthServices());
-  getIT.registerLazySingleton<DatabaseService>(() => FireStoreService(
-
-  ));
+  getIT.registerLazySingleton<DatabaseService>(() => FireStoreService());
   getIT.registerSingleton<AuthRepo>(AuthRepoImpl(
     fireBaseAuthServices: getIT.get<FireBaseAuthServices>(),
     dataBaseServices: getIT.get<DatabaseService>(),
@@ -25,8 +23,11 @@ void setUpGetIt() {
 
   getIT.registerSingleton<SignupCubit>(SignupCubit(getIT.get<AuthRepo>()));
   getIT.registerSingleton<LoginCubit>(LoginCubit(getIT.get<AuthRepo>()));
-  getIT.registerSingleton<ProductsRepoImpl>(ProductsRepoImpl(  getIT.get<DatabaseService>()));
-    getIT.registerSingleton<ProductsRepo>(getIT.get<ProductsRepoImpl>());
-    getIT.registerSingleton<ProductCubit>( ProductCubit( getIT.get<ProductsRepoImpl>()));
+  getIT.registerSingleton<ProductsRepoImpl>(
+      ProductsRepoImpl(getIT.get<DatabaseService>()));
+  getIT.registerSingleton<ProductsRepo>(getIT.get<ProductsRepoImpl>());
+  getIT.registerSingleton<ProductCubit>(
+      ProductCubit(getIT.get<ProductsRepoImpl>()));
 
+  getIT.registerFactory<CartCubit>(() => CartCubit());
 }
