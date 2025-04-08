@@ -59,10 +59,15 @@ class AppStyles {
     fontWeight: FontWeightManger.bold,
     color: ColorManger.dustyGray,
   );
-  static TextStyle font13LightPrimaryColorBold = const TextStyle(
+  static TextStyle font13SemiBoldPrimaryColorBold = const TextStyle(
     fontSize: 13,
     fontWeight: FontWeightManger.semiBold,
     color: ColorManger.lightPrimaryColor,
+  );
+    static TextStyle font13SBoldPrimaryColorBold = const TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightManger.bold,
+    color: ColorManger.primaryColor,
   );
     static TextStyle font15PrimaryColorBold = const TextStyle(
     fontSize: 15,

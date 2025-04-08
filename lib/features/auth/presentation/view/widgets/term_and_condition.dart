@@ -47,7 +47,7 @@ class _TermAndConditionState extends State<TermAndCondition> {
                 ),
                 TextSpan(
                   text: " الشروط والأحكام الخاصة بنا ",
-                  style: AppStyles.font13LightPrimaryColorBold,
+                  style: AppStyles.font13SemiBoldPrimaryColorBold,
                 ),
               ],
             ),

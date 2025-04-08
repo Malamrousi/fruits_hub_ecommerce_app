@@ -10,3 +10,4 @@ final class CartItemUpdated extends CartItemState {
   final CartItemEntity cartItem;
   const CartItemUpdated(this.cartItem);
 }
+ 

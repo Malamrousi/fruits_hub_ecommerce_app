@@ -39,7 +39,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 onPressed: () {},
                 child: Text(
                  "نسيت كلمة المرور",
-                  style: AppStyles.font13LightPrimaryColorBold,
+                  style: AppStyles.font13SemiBoldPrimaryColorBold,
                 ),
               ),
             ),

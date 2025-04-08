@@ -25,7 +25,7 @@ class FeatureItemButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Text(
           "تسوق الان",
-          style: AppStyles.font13LightPrimaryColorBold,
+          style: AppStyles.font13SemiBoldPrimaryColorBold,
         ),
       ),
     );
