@@ -5,6 +5,7 @@ import 'package:fruit_hub/features/auth/presentation/view/sign_up_view.dart';
 import 'package:fruit_hub/features/splash/presentation/view/splash_view.dart';
 
 import '../../features/best_selling/presentation/view/best_selling_view.dart';
+import '../../features/cart/domain/entities/cart_item_entity.dart';
 import '../../features/checkout/presentation/view/checkout_screen.dart';
 import '../../features/home/presentation/view/main_view.dart';
 import '../../features/on_boardibg/presentation/view/on_boarding_view.dart';
@@ -37,7 +38,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
              case RouteName.checkout:
       return MaterialPageRoute(
-        builder: (_) => const CheckoutScreen(),
+        builder: (_) =>  CheckoutScreen(
+          cartItems: settings.arguments as List<CartItemEntity>,
+        ),
       );
     default:
       return MaterialPageRoute(

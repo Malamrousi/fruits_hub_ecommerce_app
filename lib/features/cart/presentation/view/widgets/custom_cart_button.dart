@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helper/extension.dart';
 import 'package:fruit_hub/core/routing/route_name.dart';
+import 'package:fruit_hub/core/utils/show_toast.dart';
 import 'package:fruit_hub/features/cart/presentation/cubit/cart_item/cart_item_cubit.dart';
 
 import '../../../../../core/utils/app_styles.dart';
@@ -23,7 +24,12 @@ class CustomCartButton extends StatelessWidget {
           textStyle: AppStyles.font16WhiteBold,
           bottomHeight: 50,
           onPressed: () {
-            context.pushNamed(RouteName.checkout);
+            if (context.read<CartCubit>().cartEntity.cartItems.isNotEmpty) {
+              context.pushNamed(RouteName.checkout ,
+              arguments: context.read<CartCubit>().cartEntity.cartItems);
+            }else{
+              ShowToast.showToastErrorTop(message: "لا يوجد منتجات في سله التسوق");
+            }
           },
         );
       },
