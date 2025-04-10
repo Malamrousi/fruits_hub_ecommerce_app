@@ -16,6 +16,7 @@ class CheckoutScreenViewBody extends StatefulWidget {
 
 class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
   late PageController pageController;
+  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(AutovalidateMode.disabled);
 
   @override
   void initState() {
@@ -33,6 +34,7 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
   void dispose() {
     super.dispose();
     pageController.dispose();
+    valueNotifier.dispose();
   }
 
   int currentPage = 0;
@@ -50,18 +52,19 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
           ),
           verticalSpacing(20),
           Expanded(
-              child: CheckoutStepsPageView(pageController: pageController ,
-              formKey: formKey,)),
+              child: CheckoutStepsPageView(
+            pageController: pageController,
+            valueListenable: valueNotifier,
+            formKey: formKey,
+          )),
           verticalSpacing(20),
           CustomButton(
             title: getNextButtonTitle(currentPage),
             onPressed: () {
-              if (context.read<OrderEntity>().payWidthCash != null) {
-                pageController.animateToPage(currentPage + 1,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeIn);
-              } else {
-                ShowToast.showToastErrorTop(message: "اختر طريقة الدفع الاولى");
+              if (currentPage == 0) {
+                _handelShippingAddress(context);
+              } else if (currentPage == 1) {
+                _handelAddress(context);
               }
             },
           ),
@@ -69,6 +72,27 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
         ],
       ),
     );
+  }
+
+  void _handelShippingAddress(BuildContext context) {
+    if (context.read<OrderEntity>().payWidthCash != null) {
+      pageController.animateToPage(currentPage + 1,
+          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+    } else {
+      ShowToast.showToastErrorTop(message: "اختر طريقة الدفع الاولى");
+    }
+  }
+
+  void _handelAddress(BuildContext context) {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+
+      pageController.animateToPage(currentPage + 1,
+          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+    }else {
+      valueNotifier.value = AutovalidateMode.always;
+      ShowToast.showToastErrorTop(message: "ادخل  جميع البيانات المطلوبة");
+    }
   }
 
   String getNextButtonTitle(int currentPage) {

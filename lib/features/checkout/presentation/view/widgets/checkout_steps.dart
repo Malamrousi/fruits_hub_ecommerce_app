@@ -34,6 +34,7 @@ class CheckoutSteps extends StatelessWidget {
       }),
     );
   }
+  
 }
 
 List<String> getSteps() {
