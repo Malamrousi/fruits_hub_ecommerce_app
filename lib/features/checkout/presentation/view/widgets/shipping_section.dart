@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/presentation/view/widgets/shipping_item.dart';
+import 'package:provider/provider.dart';
 
 class ShippingSection extends StatefulWidget {
   const ShippingSection({super.key});
@@ -10,9 +10,10 @@ class ShippingSection extends StatefulWidget {
   State<ShippingSection> createState() => _ShippingSectionState();
 }
 
-class _ShippingSectionState extends State<ShippingSection> with AutomaticKeepAliveClientMixin {
+class _ShippingSectionState extends State<ShippingSection>
+    with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
-    @override
+  @override
   bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class _ShippingSectionState extends State<ShippingSection> with AutomaticKeepAli
           height: 33,
         ),
         ShippingItem(
-          onTap: () { 
+          onTap: () {
             setState(() {
               selectedIndex = 0;
               orderEntity.payWidthCash = true;
@@ -49,12 +50,9 @@ class _ShippingSectionState extends State<ShippingSection> with AutomaticKeepAli
           iSelected: selectedIndex == 1,
           title: 'الدفع اونلاين',
           subTitle: 'يرجي تحديد طريقه الدفع',
-          price:
-              "${context.read<OrderEntity>().cartEntity.getTotalPrice() }",
+          price: "${context.read<OrderEntity>().cartEntity.getTotalPrice()}",
         ),
       ],
     );
   }
-  
-
 }

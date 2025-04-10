@@ -36,6 +36,7 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
   }
 
   int currentPage = 0;
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -49,7 +50,8 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
           ),
           verticalSpacing(20),
           Expanded(
-              child: CheckoutStepsPageView(pageController: pageController)),
+              child: CheckoutStepsPageView(pageController: pageController ,
+              formKey: formKey,)),
           verticalSpacing(20),
           CustomButton(
             title: getNextButtonTitle(currentPage),

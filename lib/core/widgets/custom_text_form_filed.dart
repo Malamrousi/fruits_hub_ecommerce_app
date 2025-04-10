@@ -18,7 +18,7 @@ class CustomTextFormFiled extends StatelessWidget {
       this.fillColor,
       this.autoFocus,
       this.suffixIcon,
-      this.prefixIcon});
+      this.prefixIcon, this.onSaved});
 
   final String? hintText;
   final TextInputType? keyboardType;
@@ -28,7 +28,9 @@ class CustomTextFormFiled extends StatelessWidget {
   final TextStyle? inputTextStyle;
   final bool? obscureText;
   final TextEditingController? controller;
-  final Function(String? value) validator;
+  final Function(String? value) validator; 
+  final Function(String? value)? onSaved ;
+
   final Color? fillColor;
   final bool? autoFocus;
   final Widget? suffixIcon;
@@ -37,6 +39,7 @@ class CustomTextFormFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved:onSaved ,
       keyboardType: keyboardType,
       controller: controller,
       autofocus: autoFocus ?? false,

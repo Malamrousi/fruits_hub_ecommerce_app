@@ -5,7 +5,7 @@ import 'package:fruit_hub/features/checkout/domain/entities/shipping_address_ent
 class OrderEntity {
  final CartEntity cartEntity;
   bool? payWidthCash;
- final ShippingAddressEntity? shippingAddressEntity;
+  ShippingAddressEntity? shippingAddressEntity = ShippingAddressEntity();
   OrderEntity(
 
      this.cartEntity,
