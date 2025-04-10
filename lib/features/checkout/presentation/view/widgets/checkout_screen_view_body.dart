@@ -1,6 +1,9 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helper/spacing.dart';
+import 'package:fruit_hub/core/utils/show_toast.dart';
 import 'package:fruit_hub/core/widgets/custom_button.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/presentation/view/widgets/checkout_steps_page_view.dart';
 import 'checkout_steps.dart';
 
@@ -51,10 +54,13 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
           CustomButton(
             title: getNextButtonTitle(currentPage),
             onPressed: () {
-              pageController.animateToPage(
-                currentPage + 1,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn);
+              if (context.read<OrderEntity>().payWidthCash != null) {
+                pageController.animateToPage(currentPage + 1,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeIn);
+              } else {
+                ShowToast.showToastErrorTop(message: "اختر طريقة الدفع الاولى");
+              }
             },
           ),
           verticalSpacing(30),
@@ -63,7 +69,7 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
     );
   }
 
-  String getNextButtonTitle(int  currentPage) {
+  String getNextButtonTitle(int currentPage) {
     switch (currentPage) {
       case 0:
         return "التالي";

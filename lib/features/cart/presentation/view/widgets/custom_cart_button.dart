@@ -25,10 +25,11 @@ class CustomCartButton extends StatelessWidget {
           bottomHeight: 50,
           onPressed: () {
             if (context.read<CartCubit>().cartEntity.cartItems.isNotEmpty) {
-              context.pushNamed(RouteName.checkout ,
-              arguments: context.read<CartCubit>().cartEntity.cartItems);
-            }else{
-              ShowToast.showToastErrorTop(message: "لا يوجد منتجات في سله التسوق");
+              context.pushNamed(RouteName.checkout,
+                  arguments: context.read<CartCubit>().cartEntity);
+            } else {
+              ShowToast.showToastErrorTop(
+                  message: "لا يوجد منتجات في سله التسوق");
             }
           },
         );
