@@ -19,6 +19,11 @@ class AppStyles {
     fontWeight: FontWeightManger.regular,
     color: ColorManger.stoneGrayColor,
   );
+      static TextStyle font13BlackSemiBold = const TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightManger.semiBold,
+    color: Colors.black,
+  );
   static TextStyle font23sPrimaryColorBold = const TextStyle(
     fontSize: 23,
     fontWeight: FontWeightManger.bold,
