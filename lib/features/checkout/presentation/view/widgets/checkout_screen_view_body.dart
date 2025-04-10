@@ -16,18 +16,23 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
 
   @override
   void initState() {
-    
     super.initState();
     pageController = PageController(initialPage: 0);
+
+    pageController.addListener(() {
+      setState(() {
+        currentPage = pageController.page!.toInt();
+      });
+    });
   }
 
   @override
   void dispose() {
-    
     super.dispose();
     pageController.dispose();
   }
 
+  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,18 +40,39 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
       child: Column(
         children: [
           verticalSpacing(20),
-          const CheckoutSteps(),
+          CheckoutSteps(
+            pageController: pageController,
+            currentState: currentPage,
+          ),
           verticalSpacing(20),
           Expanded(
               child: CheckoutStepsPageView(pageController: pageController)),
           verticalSpacing(20),
           CustomButton(
-            title: "التالي",
-            onPressed: () {},
+            title: getNextButtonTitle(currentPage),
+            onPressed: () {
+              pageController.animateToPage(
+                currentPage + 1,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeIn);
+            },
           ),
           verticalSpacing(30),
         ],
       ),
     );
+  }
+
+  String getNextButtonTitle(int  currentPage) {
+    switch (currentPage) {
+      case 0:
+        return "التالي";
+      case 1:
+        return "التالي";
+      case 2:
+        return "الدافع باستخدام paypal";
+      default:
+        return "التالي";
+    }
   }
 }
