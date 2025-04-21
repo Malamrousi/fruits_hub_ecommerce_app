@@ -5,6 +5,7 @@ import 'package:fruit_hub/core/utils/show_toast.dart';
 import 'package:fruit_hub/core/widgets/custom_button.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/presentation/view/widgets/checkout_steps_page_view.dart';
+import '../../cubit/add_order_cubit/add_order_cubit.dart';
 import 'checkout_steps.dart';
 
 class CheckoutScreenViewBody extends StatefulWidget {
@@ -65,6 +66,9 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
                 _handelShippingAddress(context);
               } else if (currentPage == 1) {
                 _handelAddress(context);
+              }else{
+                var orderEntity = context.read<OrderEntity>();
+                context.read<AddOrderCubit>().addOrder(orderEntity: orderEntity);
               }
             },
           ),
