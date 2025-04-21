@@ -10,6 +10,9 @@ import 'package:fruit_hub/features/auth/presentation/cubits/cubit/login_cubit.da
 import 'package:fruit_hub/features/auth/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
 import 'package:fruit_hub/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:fruit_hub/features/cart/presentation/cubit/cart_item/cart_item_cubit.dart';
+import 'package:fruit_hub/features/checkout/data/repo/orders_repo_impl.dart';
+import 'package:fruit_hub/features/checkout/domain/repo/orders_repo.dart';
+import 'package:fruit_hub/features/checkout/presentation/cubit/add_order_cubit/add_order_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final getIT = GetIt.instance;
@@ -32,4 +35,11 @@ void setUpGetIt() {
 
   getIT.registerFactory<CartCubit>(() => CartCubit());
   getIT.registerFactory<CartItemCubit>(() => CartItemCubit());
+    getIT.registerLazySingleton<OrdersRepo>(() => OrdersRepoImpl(
+      databaseService: getIT.get<DatabaseService>(),
+    ));
+    getIT.registerFactory<AddOrderCubit>(() => AddOrderCubit(
+      ordersRepo: getIT.get<OrdersRepo>(),
+    ));
+
 }
