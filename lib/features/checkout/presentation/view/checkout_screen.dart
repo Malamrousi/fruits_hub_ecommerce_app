@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fruit_hub/core/func/get_user.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
 import 'package:fruit_hub/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
@@ -17,7 +18,9 @@ class CheckoutScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(title: "الدفع", context: context),
       body: Provider.value(
-          value: OrderEntity(cartEntity,
+          value: OrderEntity(
+            uId: getUser().uid,
+            cartEntity,
               shippingAddressEntity: ShippingAddressEntity()),
           child: const CheckoutScreenViewBody()),
     );

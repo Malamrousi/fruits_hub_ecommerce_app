@@ -29,7 +29,7 @@ class CartItemActionButtons extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            cartItemEntity.count.toString(),
+            cartItemEntity.quanitty.toString(),
             textAlign: TextAlign.center,
             style: AppStyles.font16GrayScaleBold,
           ),
