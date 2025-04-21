@@ -1,10 +1,16 @@
-import 'package:flutter/widgets.dart';
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
+import 'package:fruit_hub/core/helper/extension.dart';
 import 'package:fruit_hub/core/helper/spacing.dart';
+import 'package:fruit_hub/core/utils/app_key.dart';
 import 'package:fruit_hub/core/utils/show_toast.dart';
 import 'package:fruit_hub/core/widgets/custom_button.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/presentation/view/widgets/checkout_steps_page_view.dart';
+import '../../../domain/entities/paypal_payment_entity/paypal_payment_entity.dart';
 import '../../cubit/add_order_cubit/add_order_cubit.dart';
 import 'checkout_steps.dart';
 
@@ -17,7 +23,8 @@ class CheckoutScreenViewBody extends StatefulWidget {
 
 class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
   late PageController pageController;
-  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(AutovalidateMode.disabled);
+  ValueNotifier<AutovalidateMode> valueNotifier =
+      ValueNotifier(AutovalidateMode.disabled);
 
   @override
   void initState() {
@@ -66,9 +73,13 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
                 _handelShippingAddress(context);
               } else if (currentPage == 1) {
                 _handelAddress(context);
-              }else{
+              } else {
                 var orderEntity = context.read<OrderEntity>();
-                context.read<AddOrderCubit>().addOrder(orderEntity: orderEntity);
+                context
+                    .read<AddOrderCubit>()
+                    .addOrder(orderEntity: orderEntity);
+
+                processPayment(context);
               }
             },
           ),
@@ -93,7 +104,7 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
 
       pageController.animateToPage(currentPage + 1,
           duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
-    }else {
+    } else {
       valueNotifier.value = AutovalidateMode.always;
       ShowToast.showToastErrorTop(message: "ادخل  جميع البيانات المطلوبة");
     }
@@ -110,5 +121,36 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
       default:
         return "التالي";
     }
+  }
+
+  void processPayment(BuildContext context) {
+    var orderEntity = context.read<OrderEntity>();
+    PaypalPaymentEntity paypalPaymentEntity =
+        PaypalPaymentEntity.fromEntity(orderEntity);
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => PaypalCheckoutView(
+        sandboxMode: true,
+        clientId: AppKey.paypalClientId,
+        secretKey: AppKey.paypalSecretKey,
+        transactions: [paypalPaymentEntity.toJson()],
+        note: "Contact us for any questions on your order.",
+        onSuccess: (Map params) async {
+          print("onSuccess: $params");
+          context.pop();
+        },
+        onError: (error) {
+          context.pop();
+          log("❌❌❌❌ onError: $error ❌❌❌❌");
+          ShowToast.showToastErrorTop(message: "❌❌❌❌ onError ❌❌❌❌");
+        },
+        onCancel: () {
+          log("⚠️⚠️⚠️⚠️⚠️ onCancel:⚠️⚠️⚠️⚠️⚠️");
+          ShowToast.showToastErrorTop(
+              message: "⚠️⚠️⚠️⚠️⚠️ onCancel ⚠️⚠️⚠️⚠️⚠️");
+
+          context.pop();
+        },
+      ),
+    ));
   }
 }

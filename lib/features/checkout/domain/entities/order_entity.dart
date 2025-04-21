@@ -4,18 +4,30 @@ import 'package:fruit_hub/features/checkout/domain/entities/shipping_address_ent
 
 class OrderEntity {
   final String uId;
- final CartEntity cartEntity;
+  final CartEntity cartEntity;
   bool? payWidthCash;
-  ShippingAddressEntity? shippingAddressEntity ;
-  OrderEntity(
+  ShippingAddressEntity? shippingAddressEntity;
+  OrderEntity(this.cartEntity,
+      {this.payWidthCash,
+      required this.shippingAddressEntity,
+      required this.uId});
 
-     this.cartEntity,
-  
-  {
-     this.payWidthCash,
-   required  this.shippingAddressEntity,
-    required this.uId
+  int calculatedShippingCost() {
+    if (payWidthCash!) {
+      return 30;
+    } else {
+      return 0;
+    }
   }
+
+  double calculateShippingDiscount() {
+  
+      return 0;
     
-  );
- }
+  }
+  double calculateTotalPriceAfterDiscountAndShipping() {
+    return cartEntity.getTotalPrice() +
+        calculatedShippingCost() -
+        calculateShippingDiscount();
+  }
+}
