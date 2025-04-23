@@ -7,9 +7,10 @@ import '../../../domain/entities/order_entity.dart';
 
 class CheckoutSteps extends StatelessWidget {
   const CheckoutSteps(
-      {super.key, required this.currentState, required this.pageController});
+      {super.key, required this.currentState, required this.pageController, required this.onStepTapped});
   final int currentState;
   final PageController pageController;
+  final ValueChanged<int> onStepTapped;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,13 +18,7 @@ class CheckoutSteps extends StatelessWidget {
         return Expanded(
             child: GestureDetector(
           onTap: () {
-               if(context.read<OrderEntity>().payWidthCash != null){
-                   pageController.animateToPage(index,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn);
-           }else{
-             ShowToast.showToastErrorTop(message: "اختر طريقة الدفع الاولى");
-           }
+            onStepTapped(index);
           },
           child: StepItem(
             isActive: index <= currentState,

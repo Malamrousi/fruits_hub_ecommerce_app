@@ -30,6 +30,7 @@ class OrderProductModel {
     return {
       'name': name,
       'code': code,
+      
       'imageUrl': imageUrl,
       'price': price,
       'quantity': quantity,

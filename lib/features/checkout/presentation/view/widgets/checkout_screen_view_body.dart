@@ -55,6 +55,24 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
         children: [
           verticalSpacing(20),
           CheckoutSteps(
+            onStepTapped: (index) {
+              if (index == 0) {
+                pageController.animateToPage(index,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeIn);
+              } else if (index == 1) {
+                if (context.read<OrderEntity>().payWidthCash != null) {
+                  pageController.animateToPage(index,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeIn);
+                }
+                 else {
+                ShowToast.showToastErrorTop(message: "اختر طريقة الدفع الاولى");
+              }
+              }else{
+                _handelAddress(context);
+              }
+            },
             pageController: pageController,
             currentState: currentPage,
           ),
@@ -74,11 +92,6 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
               } else if (currentPage == 1) {
                 _handelAddress(context);
               } else {
-                var orderEntity = context.read<OrderEntity>();
-                context
-                    .read<AddOrderCubit>()
-                    .addOrder(orderEntity: orderEntity);
-
                 processPayment(context);
               }
             },
@@ -125,8 +138,10 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
 
   void processPayment(BuildContext context) {
     var orderEntity = context.read<OrderEntity>();
+
     PaypalPaymentEntity paypalPaymentEntity =
         PaypalPaymentEntity.fromEntity(orderEntity);
+    var addOrderCubit = context.read<AddOrderCubit>();
     Navigator.of(context).push(MaterialPageRoute(
       builder: (BuildContext context) => PaypalCheckoutView(
         sandboxMode: true,
@@ -137,6 +152,7 @@ class _CheckoutScreenViewBodyState extends State<CheckoutScreenViewBody> {
         onSuccess: (Map params) async {
           print("onSuccess: $params");
           context.pop();
+          addOrderCubit.addOrder(orderEntity: orderEntity);
         },
         onError: (error) {
           context.pop();

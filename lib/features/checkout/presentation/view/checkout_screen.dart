@@ -13,9 +13,24 @@ import '../../../../core/services/get_it_services.dart';
 import '../../domain/entities/shipping_address_entity.dart';
 import 'widgets/checkout_screen_view_body.dart';
 
-class CheckoutScreen extends StatelessWidget {
+class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key, required this.cartEntity});
   final CartEntity cartEntity;
+
+  @override
+  State<CheckoutScreen> createState() => _CheckoutScreenState();
+}
+
+class _CheckoutScreenState extends State<CheckoutScreen> {
+  late OrderEntity orderEntity;
+  @override
+  void initState() {
+    super.initState();
+    orderEntity = OrderEntity(
+        uId: getUser().uid,
+        widget.cartEntity,
+        shippingAddressEntity: ShippingAddressEntity());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +39,8 @@ class CheckoutScreen extends StatelessWidget {
       child: Scaffold(
         appBar: buildAppBar(title: "الدفع", context: context),
         body: Provider.value(
-            value: OrderEntity(
-                uId: getUser().uid,
-                cartEntity,
-                shippingAddressEntity: ShippingAddressEntity()),
-            child:const AddOrderBlocConsumer(child:  CheckoutScreenViewBody())),
+            value: orderEntity,
+            child: const AddOrderBlocConsumer(child: CheckoutScreenViewBody())),
       ),
     );
   }
